@@ -100,8 +100,15 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [historical, setHistorical] = useState([]);
+  const [monthlyPreset, setMonthlyPreset] = useState({});
 
   useEffect(() => {
+    // Load monthly presets from output_monthly.json
+    fetch('/output_monthly.json')
+      .then(r => r.json())
+      .then(data => {
+        setMonthlyPreset(data);
+      });
     // Load historical data from output.json
     fetch('/output.json')
       .then(r => r.json())
@@ -123,7 +130,7 @@ export default function App() {
       .then(r => r.json())
       .then(data => {
         // Use monthly averages for estimation
-        const monthlyAvg = getMonthlyAverages(historical);
+        const monthlyAvg = historical.length > 0 ? getMonthlyAverages(historical) : monthlyPreset;
         const days = data.daily.time.map((date, i) => {
           const sunshineHours = data.daily.sunshine_duration[i] / 3600;
           const month = date.slice(5,7);
@@ -145,7 +152,7 @@ export default function App() {
         setError('Failed to fetch forecast');
         setLoading(false);
       });
-  }, [historical]);
+  }, [historical, monthlyPreset]);
 
   const today = formatDate(new Date().toISOString());
 

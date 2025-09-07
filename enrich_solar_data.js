@@ -34,6 +34,7 @@ async function enrichCSV() {
   const header = 'Date,Production (kWh),Sunshine (h),kWh per sunshine hour';
   const out = [header];
   const jsonOut = [];
+  const monthly = {};
   for (let i = 1; i < lines.length; i++) {
     const line = lines[i].trim();
     if (!line) continue;
@@ -49,12 +50,29 @@ async function enrichCSV() {
       sunshine: parseFloat(sunshine.toFixed(2)),
       kWhPerHour: kWhPerHour ? parseFloat(kWhPerHour) : null
     });
+    // Monthly average calculation
+    const month = date.slice(5,7);
+    if (!monthly[month]) monthly[month] = { sum: 0, count: 0 };
+    if (kWhPerHour) {
+      monthly[month].sum += parseFloat(kWhPerHour);
+      monthly[month].count++;
+    }
     console.log(`Processed ${date}: ${sunshine.toFixed(2)}h, ${kWhPerHour} kWh/h`);
   }
+  // Ensure public/ exists
+  const publicDir = path.join(process.cwd(), 'public');
+  if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir);
   fs.writeFileSync(path.join(path.dirname(inputFile), 'output.csv'), out.join('\n'));
-  fs.writeFileSync(path.join(path.dirname(inputFile), 'output.json'), JSON.stringify(jsonOut, null, 2));
+  fs.writeFileSync(path.join(publicDir, 'output.json'), JSON.stringify(jsonOut, null, 2));
+  // Write monthly averages
+  const monthlyAvg = {};
+  Object.keys(monthly).forEach(m => {
+    monthlyAvg[m] = monthly[m].count ? (monthly[m].sum / monthly[m].count) : null;
+  });
+  fs.writeFileSync(path.join(publicDir, 'output_monthly.json'), JSON.stringify(monthlyAvg, null, 2));
   console.log(`Enriched CSV written to output.csv`);
-  console.log(`Enriched JSON written to output.json`);
+  console.log(`Enriched JSON written to public/output.json`);
+  console.log(`Monthly averages written to public/output_monthly.json`);
 }
 
 enrichCSV();
