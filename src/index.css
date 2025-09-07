@@ -1,0 +1,144 @@
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: #f6f8fa;
+  margin: 0;
+  color: #222;
+}
+
+#root {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.5rem;
+  transition: box-shadow 0.2s;
+}
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+.card-content {
+  padding: 0.5rem 0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+.table th, .table td {
+  padding: 0.75rem 0.5rem;
+  text-align: left;
+}
+.table th {
+  background: #e9ecef;
+  font-weight: 600;
+}
+.table tr {
+  border-bottom: 1px solid #e3e3e3;
+}
+.table tr.highlight {
+  background: #ffe066;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  /* Table responsiveness */
+  .card-content {
+    overflow-x: auto;
+  }
+  .table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    box-sizing: border-box;
+    table-layout: auto;
+  }
+  .table th, .table td {
+    padding: 0.5rem 0.75rem;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+    word-break: break-word;
+  }
+  .table th {
+    background: #f7f7f7;
+    font-weight: 600;
+  }
+  .table tr.highlight {
+    background: #ffe9c6;
+  }
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.toggle-switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background: #e3e3e3;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.toggle-switch[data-checked="true"] {
+  background: #4caf50;
+}
+.toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  transition: left 0.2s;
+}
+.toggle-switch[data-checked="true"] .toggle-knob {
+  left: 22px;
+}
+
+@media (max-width: 600px) {
+  #root {
+    padding: 0.5rem;
+  }
+  .card {
+    padding: 0.75rem 0.5rem;
+  }
+  .table th, .table td {
+    padding: 0.5rem 0.25rem;
+    font-size: 0.95em;
+  }
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.85em;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
