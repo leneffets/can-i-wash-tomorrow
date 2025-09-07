@@ -1,0 +1,2408 @@
+[
+  {
+    "date": "2024-08-01",
+    "production": 3.61,
+    "sunshine": 14.01,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2024-08-02",
+    "production": 1.49,
+    "sunshine": 2.53,
+    "kWhPerHour": 0.59
+  },
+  {
+    "date": "2024-08-03",
+    "production": 2.8,
+    "sunshine": 13,
+    "kWhPerHour": 0.22
+  },
+  {
+    "date": "2024-08-04",
+    "production": 1.64,
+    "sunshine": 6.18,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2024-08-05",
+    "production": 3.52,
+    "sunshine": 11.54,
+    "kWhPerHour": 0.3
+  },
+  {
+    "date": "2024-08-06",
+    "production": 3.54,
+    "sunshine": 13.84,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2024-08-07",
+    "production": 3.79,
+    "sunshine": 12.8,
+    "kWhPerHour": 0.3
+  },
+  {
+    "date": "2024-08-08",
+    "production": 2.77,
+    "sunshine": 11.64,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2024-08-09",
+    "production": 2.02,
+    "sunshine": 6.98,
+    "kWhPerHour": 0.29
+  },
+  {
+    "date": "2024-08-10",
+    "production": 3.39,
+    "sunshine": 13.71,
+    "kWhPerHour": 0.25
+  },
+  {
+    "date": "2024-08-11",
+    "production": 3.27,
+    "sunshine": 12,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2024-08-12",
+    "production": 3.78,
+    "sunshine": 13.68,
+    "kWhPerHour": 0.28
+  },
+  {
+    "date": "2024-08-13",
+    "production": 3.78,
+    "sunshine": 13.63,
+    "kWhPerHour": 0.28
+  },
+  {
+    "date": "2024-08-14",
+    "production": 3.55,
+    "sunshine": 12.98,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2024-08-15",
+    "production": 2.53,
+    "sunshine": 13.46,
+    "kWhPerHour": 0.19
+  },
+  {
+    "date": "2024-08-16",
+    "production": 3.04,
+    "sunshine": 13.42,
+    "kWhPerHour": 0.23
+  },
+  {
+    "date": "2024-08-17",
+    "production": 2.8,
+    "sunshine": 12.25,
+    "kWhPerHour": 0.23
+  },
+  {
+    "date": "2024-08-18",
+    "production": 2.07,
+    "sunshine": 7.15,
+    "kWhPerHour": 0.29
+  },
+  {
+    "date": "2024-08-19",
+    "production": 2.92,
+    "sunshine": 11.35,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2024-08-20",
+    "production": 3.48,
+    "sunshine": 12.8,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2024-08-21",
+    "production": 2.58,
+    "sunshine": 12.72,
+    "kWhPerHour": 0.2
+  },
+  {
+    "date": "2024-08-22",
+    "production": 2.09,
+    "sunshine": 9.44,
+    "kWhPerHour": 0.22
+  },
+  {
+    "date": "2024-08-23",
+    "production": 3.22,
+    "sunshine": 9.36,
+    "kWhPerHour": 0.34
+  },
+  {
+    "date": "2024-08-24",
+    "production": 3.38,
+    "sunshine": 12.76,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2024-08-25",
+    "production": 1.78,
+    "sunshine": 7.31,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2024-08-26",
+    "production": 3.34,
+    "sunshine": 11.34,
+    "kWhPerHour": 0.29
+  },
+  {
+    "date": "2024-08-27",
+    "production": 3.38,
+    "sunshine": 12.59,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2024-08-28",
+    "production": 3.25,
+    "sunshine": 12.43,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2024-08-29",
+    "production": 3.24,
+    "sunshine": 12.32,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2024-08-30",
+    "production": 2.78,
+    "sunshine": 10.39,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2024-08-31",
+    "production": 3.22,
+    "sunshine": 10.44,
+    "kWhPerHour": 0.31
+  },
+  {
+    "date": "2024-09-01",
+    "production": 3.34,
+    "sunshine": 11,
+    "kWhPerHour": 0.3
+  },
+  {
+    "date": "2024-09-02",
+    "production": 3.3,
+    "sunshine": 12.01,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2024-09-03",
+    "production": 2.92,
+    "sunshine": 12.03,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2024-09-04",
+    "production": 3.03,
+    "sunshine": 12.03,
+    "kWhPerHour": 0.25
+  },
+  {
+    "date": "2024-09-05",
+    "production": 3.1,
+    "sunshine": 12.03,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2024-09-06",
+    "production": 3.04,
+    "sunshine": 12,
+    "kWhPerHour": 0.25
+  },
+  {
+    "date": "2024-09-07",
+    "production": 3.01,
+    "sunshine": 11.99,
+    "kWhPerHour": 0.25
+  },
+  {
+    "date": "2024-09-08",
+    "production": 2.97,
+    "sunshine": 11.97,
+    "kWhPerHour": 0.25
+  },
+  {
+    "date": "2024-09-09",
+    "production": 0.47,
+    "sunshine": 1.97,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2024-09-10",
+    "production": 1.99,
+    "sunshine": 6.49,
+    "kWhPerHour": 0.31
+  },
+  {
+    "date": "2024-09-11",
+    "production": 1,
+    "sunshine": 2.38,
+    "kWhPerHour": 0.42
+  },
+  {
+    "date": "2024-09-12",
+    "production": 2.63,
+    "sunshine": 8.52,
+    "kWhPerHour": 0.31
+  },
+  {
+    "date": "2024-09-13",
+    "production": 0.71,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2024-09-14",
+    "production": 2.7,
+    "sunshine": 9.87,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2024-09-15",
+    "production": 1.89,
+    "sunshine": 7.63,
+    "kWhPerHour": 0.25
+  },
+  {
+    "date": "2024-09-16",
+    "production": 0.44,
+    "sunshine": 1.35,
+    "kWhPerHour": 0.33
+  },
+  {
+    "date": "2024-09-17",
+    "production": 2.96,
+    "sunshine": 11.43,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2024-09-18",
+    "production": 2.64,
+    "sunshine": 10.8,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2024-09-19",
+    "production": 2.71,
+    "sunshine": 10.29,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2024-09-20",
+    "production": 3.08,
+    "sunshine": 11.22,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2024-09-21",
+    "production": 3.03,
+    "sunshine": 11.15,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2024-09-22",
+    "production": 2.89,
+    "sunshine": 11.08,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2024-09-23",
+    "production": 2.96,
+    "sunshine": 10.17,
+    "kWhPerHour": 0.29
+  },
+  {
+    "date": "2024-09-24",
+    "production": 0.62,
+    "sunshine": 2.7,
+    "kWhPerHour": 0.23
+  },
+  {
+    "date": "2024-09-25",
+    "production": 1.19,
+    "sunshine": 5.09,
+    "kWhPerHour": 0.23
+  },
+  {
+    "date": "2024-09-26",
+    "production": 0.59,
+    "sunshine": 0.79,
+    "kWhPerHour": 0.75
+  },
+  {
+    "date": "2024-09-27",
+    "production": 1.92,
+    "sunshine": 9.67,
+    "kWhPerHour": 0.2
+  },
+  {
+    "date": "2024-09-28",
+    "production": 2.56,
+    "sunshine": 10.4,
+    "kWhPerHour": 0.25
+  },
+  {
+    "date": "2024-09-29",
+    "production": 2.28,
+    "sunshine": 9.5,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2024-09-30",
+    "production": 2.51,
+    "sunshine": 10.05,
+    "kWhPerHour": 0.25
+  },
+  {
+    "date": "2024-10-01",
+    "production": 0.18,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2024-10-02",
+    "production": 0.43,
+    "sunshine": 1.59,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2024-10-03",
+    "production": 1.01,
+    "sunshine": 7.12,
+    "kWhPerHour": 0.14
+  },
+  {
+    "date": "2024-10-04",
+    "production": 1.06,
+    "sunshine": 9.32,
+    "kWhPerHour": 0.11
+  },
+  {
+    "date": "2024-10-05",
+    "production": 0.67,
+    "sunshine": 6.77,
+    "kWhPerHour": 0.1
+  },
+  {
+    "date": "2024-10-06",
+    "production": 0.5,
+    "sunshine": 4.29,
+    "kWhPerHour": 0.12
+  },
+  {
+    "date": "2024-10-07",
+    "production": 1.3,
+    "sunshine": 4.77,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2024-10-08",
+    "production": 2.36,
+    "sunshine": 7.11,
+    "kWhPerHour": 0.33
+  },
+  {
+    "date": "2024-10-09",
+    "production": 2.32,
+    "sunshine": 6.81,
+    "kWhPerHour": 0.34
+  },
+  {
+    "date": "2024-10-10",
+    "production": 0.64,
+    "sunshine": 5.81,
+    "kWhPerHour": 0.11
+  },
+  {
+    "date": "2024-10-11",
+    "production": 1.47,
+    "sunshine": 8.75,
+    "kWhPerHour": 0.17
+  },
+  {
+    "date": "2024-10-12",
+    "production": 2.36,
+    "sunshine": 7.05,
+    "kWhPerHour": 0.33
+  },
+  {
+    "date": "2024-10-13",
+    "production": 1.11,
+    "sunshine": 8.67,
+    "kWhPerHour": 0.13
+  },
+  {
+    "date": "2024-10-14",
+    "production": 0.98,
+    "sunshine": 4.92,
+    "kWhPerHour": 0.2
+  },
+  {
+    "date": "2024-10-15",
+    "production": 1.77,
+    "sunshine": 8.59,
+    "kWhPerHour": 0.21
+  },
+  {
+    "date": "2024-10-16",
+    "production": 2.28,
+    "sunshine": 9.41,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2024-10-17",
+    "production": 2.11,
+    "sunshine": 8.83,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2024-10-18",
+    "production": 1.97,
+    "sunshine": 9.19,
+    "kWhPerHour": 0.21
+  },
+  {
+    "date": "2024-10-19",
+    "production": 1.62,
+    "sunshine": 6.87,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2024-10-20",
+    "production": 1.46,
+    "sunshine": 7,
+    "kWhPerHour": 0.21
+  },
+  {
+    "date": "2024-10-21",
+    "production": 0.46,
+    "sunshine": 2.83,
+    "kWhPerHour": 0.16
+  },
+  {
+    "date": "2024-10-22",
+    "production": 0.52,
+    "sunshine": 4.95,
+    "kWhPerHour": 0.1
+  },
+  {
+    "date": "2024-10-23",
+    "production": 1.68,
+    "sunshine": 8.75,
+    "kWhPerHour": 0.19
+  },
+  {
+    "date": "2024-10-24",
+    "production": 1.61,
+    "sunshine": 7.11,
+    "kWhPerHour": 0.23
+  },
+  {
+    "date": "2024-10-25",
+    "production": 1.55,
+    "sunshine": 8.67,
+    "kWhPerHour": 0.18
+  },
+  {
+    "date": "2024-10-26",
+    "production": 1.45,
+    "sunshine": 5.92,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2024-10-27",
+    "production": 1.01,
+    "sunshine": 5.64,
+    "kWhPerHour": 0.18
+  },
+  {
+    "date": "2024-10-28",
+    "production": 0.53,
+    "sunshine": 2,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2024-10-29",
+    "production": 0.32,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2024-10-30",
+    "production": 0.41,
+    "sunshine": 2.68,
+    "kWhPerHour": 0.15
+  },
+  {
+    "date": "2024-10-31",
+    "production": 0.4,
+    "sunshine": 2.27,
+    "kWhPerHour": 0.18
+  },
+  {
+    "date": "2024-11-01",
+    "production": 0.18,
+    "sunshine": 0.44,
+    "kWhPerHour": 0.41
+  },
+  {
+    "date": "2024-11-02",
+    "production": 1.17,
+    "sunshine": 8.05,
+    "kWhPerHour": 0.15
+  },
+  {
+    "date": "2024-11-03",
+    "production": 1.15,
+    "sunshine": 8.01,
+    "kWhPerHour": 0.14
+  },
+  {
+    "date": "2024-11-04",
+    "production": 0.37,
+    "sunshine": 0.03,
+    "kWhPerHour": 11.95
+  },
+  {
+    "date": "2024-11-05",
+    "production": 1.08,
+    "sunshine": 5.09,
+    "kWhPerHour": 0.21
+  },
+  {
+    "date": "2024-11-06",
+    "production": 0.18,
+    "sunshine": 0.22,
+    "kWhPerHour": 0.82
+  },
+  {
+    "date": "2024-11-07",
+    "production": 0.16,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2024-11-08",
+    "production": 0.18,
+    "sunshine": 1.42,
+    "kWhPerHour": 0.13
+  },
+  {
+    "date": "2024-11-09",
+    "production": 0.6,
+    "sunshine": 7.71,
+    "kWhPerHour": 0.08
+  },
+  {
+    "date": "2024-11-10",
+    "production": 0.15,
+    "sunshine": 1.1,
+    "kWhPerHour": 0.14
+  },
+  {
+    "date": "2024-11-11",
+    "production": 0.24,
+    "sunshine": 2.65,
+    "kWhPerHour": 0.09
+  },
+  {
+    "date": "2024-11-12",
+    "production": 0.13,
+    "sunshine": 1.47,
+    "kWhPerHour": 0.09
+  },
+  {
+    "date": "2024-11-13",
+    "production": 0.29,
+    "sunshine": 3.68,
+    "kWhPerHour": 0.08
+  },
+  {
+    "date": "2024-11-14",
+    "production": 0.23,
+    "sunshine": 1.33,
+    "kWhPerHour": 0.17
+  },
+  {
+    "date": "2024-11-15",
+    "production": 0.35,
+    "sunshine": 0.04,
+    "kWhPerHour": 9.56
+  },
+  {
+    "date": "2024-11-16",
+    "production": 0.14,
+    "sunshine": 4.83,
+    "kWhPerHour": 0.03
+  },
+  {
+    "date": "2024-11-17",
+    "production": 0.17,
+    "sunshine": 1.22,
+    "kWhPerHour": 0.14
+  },
+  {
+    "date": "2024-11-18",
+    "production": 0.25,
+    "sunshine": 5.47,
+    "kWhPerHour": 0.05
+  },
+  {
+    "date": "2024-11-19",
+    "production": 0.09,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2024-11-20",
+    "production": 0.28,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2024-11-21",
+    "production": 0.28,
+    "sunshine": 4.15,
+    "kWhPerHour": 0.07
+  },
+  {
+    "date": "2024-11-22",
+    "production": 0.26,
+    "sunshine": 0.53,
+    "kWhPerHour": 0.49
+  },
+  {
+    "date": "2024-11-23",
+    "production": 0.22,
+    "sunshine": 1.97,
+    "kWhPerHour": 0.11
+  },
+  {
+    "date": "2024-11-24",
+    "production": 0.35,
+    "sunshine": 0.75,
+    "kWhPerHour": 0.47
+  },
+  {
+    "date": "2024-11-25",
+    "production": 0.41,
+    "sunshine": 4.21,
+    "kWhPerHour": 0.1
+  },
+  {
+    "date": "2024-11-26",
+    "production": 0.45,
+    "sunshine": 3.42,
+    "kWhPerHour": 0.13
+  },
+  {
+    "date": "2024-11-27",
+    "production": 0.46,
+    "sunshine": 3.76,
+    "kWhPerHour": 0.12
+  },
+  {
+    "date": "2024-11-28",
+    "production": 0.07,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2024-11-29",
+    "production": 0.22,
+    "sunshine": 4.42,
+    "kWhPerHour": 0.05
+  },
+  {
+    "date": "2024-11-30",
+    "production": 0.3,
+    "sunshine": 6.54,
+    "kWhPerHour": 0.05
+  },
+  {
+    "date": "2024-12-01",
+    "production": 0.29,
+    "sunshine": 6.52,
+    "kWhPerHour": 0.04
+  },
+  {
+    "date": "2024-12-02",
+    "production": 0.37,
+    "sunshine": 2.04,
+    "kWhPerHour": 0.18
+  },
+  {
+    "date": "2024-12-03",
+    "production": 0.3,
+    "sunshine": 0.28,
+    "kWhPerHour": 1.09
+  },
+  {
+    "date": "2024-12-04",
+    "production": 0.1,
+    "sunshine": 0.41,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2024-12-05",
+    "production": 0.32,
+    "sunshine": 2.56,
+    "kWhPerHour": 0.13
+  },
+  {
+    "date": "2024-12-06",
+    "production": 0.12,
+    "sunshine": 0.02,
+    "kWhPerHour": 7.12
+  },
+  {
+    "date": "2024-12-07",
+    "production": 0.29,
+    "sunshine": 2.04,
+    "kWhPerHour": 0.14
+  },
+  {
+    "date": "2024-12-08",
+    "production": 0.09,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2024-12-09",
+    "production": 0.1,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2024-12-10",
+    "production": 0.09,
+    "sunshine": 0.01,
+    "kWhPerHour": 7.55
+  },
+  {
+    "date": "2024-12-11",
+    "production": 0.13,
+    "sunshine": 1.05,
+    "kWhPerHour": 0.12
+  },
+  {
+    "date": "2024-12-12",
+    "production": 0.08,
+    "sunshine": 3.39,
+    "kWhPerHour": 0.02
+  },
+  {
+    "date": "2024-12-13",
+    "production": 0.3,
+    "sunshine": 0.9,
+    "kWhPerHour": 0.33
+  },
+  {
+    "date": "2024-12-14",
+    "production": 0.07,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2024-12-15",
+    "production": 0.12,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2024-12-16",
+    "production": 0.12,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2024-12-17",
+    "production": 0.1,
+    "sunshine": 1,
+    "kWhPerHour": 0.1
+  },
+  {
+    "date": "2024-12-18",
+    "production": 0.24,
+    "sunshine": 1.63,
+    "kWhPerHour": 0.15
+  },
+  {
+    "date": "2024-12-19",
+    "production": 0.13,
+    "sunshine": 1.46,
+    "kWhPerHour": 0.09
+  },
+  {
+    "date": "2024-12-20",
+    "production": 0.29,
+    "sunshine": 6.05,
+    "kWhPerHour": 0.05
+  },
+  {
+    "date": "2024-12-21",
+    "production": 0.12,
+    "sunshine": 0.44,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2024-12-22",
+    "production": 0.2,
+    "sunshine": 3.26,
+    "kWhPerHour": 0.06
+  },
+  {
+    "date": "2024-12-23",
+    "production": 0.18,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2024-12-24",
+    "production": 0.19,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2024-12-25",
+    "production": 0.33,
+    "sunshine": 1.97,
+    "kWhPerHour": 0.17
+  },
+  {
+    "date": "2024-12-26",
+    "production": 0.13,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2024-12-27",
+    "production": 0.2,
+    "sunshine": 0.16,
+    "kWhPerHour": 1.26
+  },
+  {
+    "date": "2024-12-28",
+    "production": 0.2,
+    "sunshine": 0.97,
+    "kWhPerHour": 0.21
+  },
+  {
+    "date": "2024-12-29",
+    "production": 0.17,
+    "sunshine": 1.97,
+    "kWhPerHour": 0.09
+  },
+  {
+    "date": "2024-12-30",
+    "production": 0.11,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2024-12-31",
+    "production": 0.39,
+    "sunshine": 5.25,
+    "kWhPerHour": 0.07
+  },
+  {
+    "date": "2025-01-01",
+    "production": 0.28,
+    "sunshine": 1.91,
+    "kWhPerHour": 0.15
+  },
+  {
+    "date": "2025-01-02",
+    "production": 0.34,
+    "sunshine": 5.02,
+    "kWhPerHour": 0.07
+  },
+  {
+    "date": "2025-01-03",
+    "production": 0.19,
+    "sunshine": 3.67,
+    "kWhPerHour": 0.05
+  },
+  {
+    "date": "2025-01-04",
+    "production": 0.14,
+    "sunshine": 2.51,
+    "kWhPerHour": 0.06
+  },
+  {
+    "date": "2025-01-05",
+    "production": 0.23,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2025-01-06",
+    "production": 0.16,
+    "sunshine": 0.57,
+    "kWhPerHour": 0.28
+  },
+  {
+    "date": "2025-01-07",
+    "production": 0.29,
+    "sunshine": 6.43,
+    "kWhPerHour": 0.05
+  },
+  {
+    "date": "2025-01-08",
+    "production": 0.3,
+    "sunshine": 5.38,
+    "kWhPerHour": 0.06
+  },
+  {
+    "date": "2025-01-09",
+    "production": 0.11,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2025-01-10",
+    "production": 0.08,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2025-01-11",
+    "production": 0.21,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2025-01-12",
+    "production": 0.46,
+    "sunshine": 6.04,
+    "kWhPerHour": 0.08
+  },
+  {
+    "date": "2025-01-13",
+    "production": 0.42,
+    "sunshine": 6.15,
+    "kWhPerHour": 0.07
+  },
+  {
+    "date": "2025-01-14",
+    "production": 0.23,
+    "sunshine": 0.82,
+    "kWhPerHour": 0.28
+  },
+  {
+    "date": "2025-01-15",
+    "production": 0.19,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2025-01-16",
+    "production": 0.13,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2025-01-17",
+    "production": 0.24,
+    "sunshine": 1.53,
+    "kWhPerHour": 0.16
+  },
+  {
+    "date": "2025-01-18",
+    "production": 0.33,
+    "sunshine": 2.95,
+    "kWhPerHour": 0.11
+  },
+  {
+    "date": "2025-01-19",
+    "production": 0.42,
+    "sunshine": 6.96,
+    "kWhPerHour": 0.06
+  },
+  {
+    "date": "2025-01-20",
+    "production": 0.55,
+    "sunshine": 6.66,
+    "kWhPerHour": 0.08
+  },
+  {
+    "date": "2025-01-21",
+    "production": 0.18,
+    "sunshine": 3.96,
+    "kWhPerHour": 0.05
+  },
+  {
+    "date": "2025-01-22",
+    "production": 0.61,
+    "sunshine": 5.21,
+    "kWhPerHour": 0.12
+  },
+  {
+    "date": "2025-01-23",
+    "production": 0.14,
+    "sunshine": 0.92,
+    "kWhPerHour": 0.15
+  },
+  {
+    "date": "2025-01-24",
+    "production": 0.52,
+    "sunshine": 5,
+    "kWhPerHour": 0.1
+  },
+  {
+    "date": "2025-01-25",
+    "production": 0.29,
+    "sunshine": 1.65,
+    "kWhPerHour": 0.18
+  },
+  {
+    "date": "2025-01-26",
+    "production": 0.36,
+    "sunshine": 2.28,
+    "kWhPerHour": 0.16
+  },
+  {
+    "date": "2025-01-27",
+    "production": 0.25,
+    "sunshine": 0.86,
+    "kWhPerHour": 0.29
+  },
+  {
+    "date": "2025-01-28",
+    "production": 0.25,
+    "sunshine": 2.52,
+    "kWhPerHour": 0.1
+  },
+  {
+    "date": "2025-01-29",
+    "production": 0.43,
+    "sunshine": 2.67,
+    "kWhPerHour": 0.16
+  },
+  {
+    "date": "2025-01-30",
+    "production": 0.53,
+    "sunshine": 2.96,
+    "kWhPerHour": 0.18
+  },
+  {
+    "date": "2025-01-31",
+    "production": 0.62,
+    "sunshine": 3.46,
+    "kWhPerHour": 0.18
+  },
+  {
+    "date": "2025-02-01",
+    "production": 0.46,
+    "sunshine": 0.46,
+    "kWhPerHour": 1
+  },
+  {
+    "date": "2025-02-02",
+    "production": 0.48,
+    "sunshine": 3.02,
+    "kWhPerHour": 0.16
+  },
+  {
+    "date": "2025-02-03",
+    "production": 0.54,
+    "sunshine": 4.46,
+    "kWhPerHour": 0.12
+  },
+  {
+    "date": "2025-02-04",
+    "production": 1.07,
+    "sunshine": 8,
+    "kWhPerHour": 0.13
+  },
+  {
+    "date": "2025-02-05",
+    "production": 0.23,
+    "sunshine": 0.83,
+    "kWhPerHour": 0.28
+  },
+  {
+    "date": "2025-02-06",
+    "production": 0.37,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2025-02-07",
+    "production": 0.53,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2025-02-08",
+    "production": 1.17,
+    "sunshine": 7.45,
+    "kWhPerHour": 0.16
+  },
+  {
+    "date": "2025-02-09",
+    "production": 1.21,
+    "sunshine": 8.34,
+    "kWhPerHour": 0.15
+  },
+  {
+    "date": "2025-02-10",
+    "production": 0.91,
+    "sunshine": 6.81,
+    "kWhPerHour": 0.13
+  },
+  {
+    "date": "2025-02-11",
+    "production": 1.34,
+    "sunshine": 7.9,
+    "kWhPerHour": 0.17
+  },
+  {
+    "date": "2025-02-12",
+    "production": 1.26,
+    "sunshine": 8.55,
+    "kWhPerHour": 0.15
+  },
+  {
+    "date": "2025-02-13",
+    "production": 0.12,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2025-02-14",
+    "production": 0.85,
+    "sunshine": 4.71,
+    "kWhPerHour": 0.18
+  },
+  {
+    "date": "2025-02-15",
+    "production": 1.37,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2025-02-16",
+    "production": 0.82,
+    "sunshine": 7.64,
+    "kWhPerHour": 0.11
+  },
+  {
+    "date": "2025-02-17",
+    "production": 2.05,
+    "sunshine": 8.81,
+    "kWhPerHour": 0.23
+  },
+  {
+    "date": "2025-02-18",
+    "production": 2.38,
+    "sunshine": 8.88,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2025-02-19",
+    "production": 2.39,
+    "sunshine": 8.94,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2025-02-20",
+    "production": 2.2,
+    "sunshine": 9.05,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-02-21",
+    "production": 0.59,
+    "sunshine": 3.75,
+    "kWhPerHour": 0.16
+  },
+  {
+    "date": "2025-02-22",
+    "production": 2.31,
+    "sunshine": 9.14,
+    "kWhPerHour": 0.25
+  },
+  {
+    "date": "2025-02-23",
+    "production": 0.68,
+    "sunshine": 1.26,
+    "kWhPerHour": 0.54
+  },
+  {
+    "date": "2025-02-24",
+    "production": 2.35,
+    "sunshine": 8,
+    "kWhPerHour": 0.29
+  },
+  {
+    "date": "2025-02-25",
+    "production": 0.97,
+    "sunshine": 5.9,
+    "kWhPerHour": 0.16
+  },
+  {
+    "date": "2025-02-26",
+    "production": 0.39,
+    "sunshine": 0.13,
+    "kWhPerHour": 3.01
+  },
+  {
+    "date": "2025-02-27",
+    "production": 2.18,
+    "sunshine": 4.94,
+    "kWhPerHour": 0.44
+  },
+  {
+    "date": "2025-02-28",
+    "production": 0.68,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2025-03-01",
+    "production": 0.63,
+    "sunshine": 1.97,
+    "kWhPerHour": 0.32
+  },
+  {
+    "date": "2025-03-02",
+    "production": 2.57,
+    "sunshine": 2.75,
+    "kWhPerHour": 0.94
+  },
+  {
+    "date": "2025-03-03",
+    "production": 2.73,
+    "sunshine": 9.73,
+    "kWhPerHour": 0.28
+  },
+  {
+    "date": "2025-03-04",
+    "production": 2.67,
+    "sunshine": 9.87,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2025-03-05",
+    "production": 2.71,
+    "sunshine": 9.95,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2025-03-06",
+    "production": 2.75,
+    "sunshine": 10.06,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2025-03-07",
+    "production": 2.7,
+    "sunshine": 10.17,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2025-03-08",
+    "production": 2.64,
+    "sunshine": 10.25,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2025-03-09",
+    "production": 2.59,
+    "sunshine": 10.32,
+    "kWhPerHour": 0.25
+  },
+  {
+    "date": "2025-03-10",
+    "production": 2.64,
+    "sunshine": 10.39,
+    "kWhPerHour": 0.25
+  },
+  {
+    "date": "2025-03-11",
+    "production": 0.57,
+    "sunshine": 8.56,
+    "kWhPerHour": 0.07
+  },
+  {
+    "date": "2025-03-12",
+    "production": 0.7,
+    "sunshine": 2.36,
+    "kWhPerHour": 0.3
+  },
+  {
+    "date": "2025-03-13",
+    "production": 1.29,
+    "sunshine": 3.76,
+    "kWhPerHour": 0.34
+  },
+  {
+    "date": "2025-03-14",
+    "production": 1.24,
+    "sunshine": 10.16,
+    "kWhPerHour": 0.12
+  },
+  {
+    "date": "2025-03-15",
+    "production": 1.25,
+    "sunshine": 3.84,
+    "kWhPerHour": 0.33
+  },
+  {
+    "date": "2025-03-16",
+    "production": 2.92,
+    "sunshine": 9.65,
+    "kWhPerHour": 0.3
+  },
+  {
+    "date": "2025-03-17",
+    "production": 3.13,
+    "sunshine": 10.73,
+    "kWhPerHour": 0.29
+  },
+  {
+    "date": "2025-03-18",
+    "production": 3.26,
+    "sunshine": 10.81,
+    "kWhPerHour": 0.3
+  },
+  {
+    "date": "2025-03-19",
+    "production": 3.22,
+    "sunshine": 10.9,
+    "kWhPerHour": 0.3
+  },
+  {
+    "date": "2025-03-20",
+    "production": 3.18,
+    "sunshine": 10.99,
+    "kWhPerHour": 0.29
+  },
+  {
+    "date": "2025-03-21",
+    "production": 3.12,
+    "sunshine": 11.04,
+    "kWhPerHour": 0.28
+  },
+  {
+    "date": "2025-03-22",
+    "production": 3.21,
+    "sunshine": 11.17,
+    "kWhPerHour": 0.29
+  },
+  {
+    "date": "2025-03-23",
+    "production": 2.09,
+    "sunshine": 8.62,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-03-24",
+    "production": 1.81,
+    "sunshine": 7,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2025-03-25",
+    "production": 2.51,
+    "sunshine": 11.02,
+    "kWhPerHour": 0.23
+  },
+  {
+    "date": "2025-03-26",
+    "production": 0.68,
+    "sunshine": 0.22,
+    "kWhPerHour": 3.04
+  },
+  {
+    "date": "2025-03-27",
+    "production": 0.69,
+    "sunshine": 6.53,
+    "kWhPerHour": 0.11
+  },
+  {
+    "date": "2025-03-28",
+    "production": 3.16,
+    "sunshine": 11.37,
+    "kWhPerHour": 0.28
+  },
+  {
+    "date": "2025-03-29",
+    "production": 1.98,
+    "sunshine": 8.9,
+    "kWhPerHour": 0.22
+  },
+  {
+    "date": "2025-03-30",
+    "production": 0.86,
+    "sunshine": 6.86,
+    "kWhPerHour": 0.13
+  },
+  {
+    "date": "2025-03-31",
+    "production": 0.84,
+    "sunshine": 6.53,
+    "kWhPerHour": 0.13
+  },
+  {
+    "date": "2025-04-01",
+    "production": 2.97,
+    "sunshine": 10.06,
+    "kWhPerHour": 0.3
+  },
+  {
+    "date": "2025-04-02",
+    "production": 3.29,
+    "sunshine": 11.84,
+    "kWhPerHour": 0.28
+  },
+  {
+    "date": "2025-04-03",
+    "production": 3.52,
+    "sunshine": 11.88,
+    "kWhPerHour": 0.3
+  },
+  {
+    "date": "2025-04-05",
+    "production": 2.62,
+    "sunshine": 11.12,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-04-06",
+    "production": 3.62,
+    "sunshine": 10.55,
+    "kWhPerHour": 0.34
+  },
+  {
+    "date": "2025-04-07",
+    "production": 2.29,
+    "sunshine": 6.82,
+    "kWhPerHour": 0.34
+  },
+  {
+    "date": "2025-04-08",
+    "production": 3.29,
+    "sunshine": 9.62,
+    "kWhPerHour": 0.34
+  },
+  {
+    "date": "2025-04-09",
+    "production": 2.12,
+    "sunshine": 7.62,
+    "kWhPerHour": 0.28
+  },
+  {
+    "date": "2025-04-10",
+    "production": 3.5,
+    "sunshine": 9.66,
+    "kWhPerHour": 0.36
+  },
+  {
+    "date": "2025-04-11",
+    "production": 0.91,
+    "sunshine": 4.56,
+    "kWhPerHour": 0.2
+  },
+  {
+    "date": "2025-04-12",
+    "production": 2.59,
+    "sunshine": 11.22,
+    "kWhPerHour": 0.23
+  },
+  {
+    "date": "2025-04-13",
+    "production": 2.75,
+    "sunshine": 12.32,
+    "kWhPerHour": 0.22
+  },
+  {
+    "date": "2025-04-14",
+    "production": 2.63,
+    "sunshine": 11.31,
+    "kWhPerHour": 0.23
+  },
+  {
+    "date": "2025-04-15",
+    "production": 1.94,
+    "sunshine": 10.25,
+    "kWhPerHour": 0.19
+  },
+  {
+    "date": "2025-04-16",
+    "production": 3.55,
+    "sunshine": 12.48,
+    "kWhPerHour": 0.28
+  },
+  {
+    "date": "2025-04-17",
+    "production": 3.27,
+    "sunshine": 11.55,
+    "kWhPerHour": 0.28
+  },
+  {
+    "date": "2025-04-18",
+    "production": 0.49,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2025-04-19",
+    "production": 0.81,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2025-04-20",
+    "production": 3.85,
+    "sunshine": 12.65,
+    "kWhPerHour": 0.3
+  },
+  {
+    "date": "2025-04-21",
+    "production": 1.42,
+    "sunshine": 6.84,
+    "kWhPerHour": 0.21
+  },
+  {
+    "date": "2025-04-22",
+    "production": 2.21,
+    "sunshine": 10.71,
+    "kWhPerHour": 0.21
+  },
+  {
+    "date": "2025-04-23",
+    "production": 2,
+    "sunshine": 8.38,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-04-24",
+    "production": 3.11,
+    "sunshine": 10.68,
+    "kWhPerHour": 0.29
+  },
+  {
+    "date": "2025-04-25",
+    "production": 3.48,
+    "sunshine": 10.09,
+    "kWhPerHour": 0.34
+  },
+  {
+    "date": "2025-04-26",
+    "production": 4.03,
+    "sunshine": 13.5,
+    "kWhPerHour": 0.3
+  },
+  {
+    "date": "2025-04-27",
+    "production": 4,
+    "sunshine": 13.55,
+    "kWhPerHour": 0.3
+  },
+  {
+    "date": "2025-04-28",
+    "production": 3.97,
+    "sunshine": 13.61,
+    "kWhPerHour": 0.29
+  },
+  {
+    "date": "2025-04-29",
+    "production": 3.68,
+    "sunshine": 13.67,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2025-04-30",
+    "production": 3.61,
+    "sunshine": 13.73,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2025-05-01",
+    "production": 3.84,
+    "sunshine": 13.79,
+    "kWhPerHour": 0.28
+  },
+  {
+    "date": "2025-05-02",
+    "production": 3.17,
+    "sunshine": 12.12,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2025-05-03",
+    "production": 2.14,
+    "sunshine": 10.63,
+    "kWhPerHour": 0.2
+  },
+  {
+    "date": "2025-05-04",
+    "production": 1.66,
+    "sunshine": 7.53,
+    "kWhPerHour": 0.22
+  },
+  {
+    "date": "2025-05-05",
+    "production": 3.92,
+    "sunshine": 12.88,
+    "kWhPerHour": 0.3
+  },
+  {
+    "date": "2025-05-06",
+    "production": 4.16,
+    "sunshine": 11.99,
+    "kWhPerHour": 0.35
+  },
+  {
+    "date": "2025-05-07",
+    "production": 4.19,
+    "sunshine": 12.9,
+    "kWhPerHour": 0.32
+  },
+  {
+    "date": "2025-05-08",
+    "production": 2.87,
+    "sunshine": 8.95,
+    "kWhPerHour": 0.32
+  },
+  {
+    "date": "2025-05-09",
+    "production": 3.39,
+    "sunshine": 13.78,
+    "kWhPerHour": 0.25
+  },
+  {
+    "date": "2025-05-10",
+    "production": 2.28,
+    "sunshine": 11.24,
+    "kWhPerHour": 0.2
+  },
+  {
+    "date": "2025-05-11",
+    "production": 3.94,
+    "sunshine": 14.01,
+    "kWhPerHour": 0.28
+  },
+  {
+    "date": "2025-05-12",
+    "production": 4.05,
+    "sunshine": 14.04,
+    "kWhPerHour": 0.29
+  },
+  {
+    "date": "2025-05-13",
+    "production": 4.13,
+    "sunshine": 14.05,
+    "kWhPerHour": 0.29
+  },
+  {
+    "date": "2025-05-14",
+    "production": 4.05,
+    "sunshine": 13.8,
+    "kWhPerHour": 0.29
+  },
+  {
+    "date": "2025-05-15",
+    "production": 2.06,
+    "sunshine": 13.15,
+    "kWhPerHour": 0.16
+  },
+  {
+    "date": "2025-05-16",
+    "production": 1.98,
+    "sunshine": 12,
+    "kWhPerHour": 0.17
+  },
+  {
+    "date": "2025-05-17",
+    "production": 1.58,
+    "sunshine": 8.64,
+    "kWhPerHour": 0.18
+  },
+  {
+    "date": "2025-05-18",
+    "production": 1.83,
+    "sunshine": 5.95,
+    "kWhPerHour": 0.31
+  },
+  {
+    "date": "2025-05-19",
+    "production": 0.89,
+    "sunshine": 3.05,
+    "kWhPerHour": 0.29
+  },
+  {
+    "date": "2025-05-20",
+    "production": 3.8,
+    "sunshine": 14.23,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2025-05-21",
+    "production": 4.08,
+    "sunshine": 14.3,
+    "kWhPerHour": 0.29
+  },
+  {
+    "date": "2025-05-22",
+    "production": 2.79,
+    "sunshine": 12.61,
+    "kWhPerHour": 0.22
+  },
+  {
+    "date": "2025-05-23",
+    "production": 2.37,
+    "sunshine": 13.08,
+    "kWhPerHour": 0.18
+  },
+  {
+    "date": "2025-05-24",
+    "production": 2.77,
+    "sunshine": 10.62,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2025-05-25",
+    "production": 1.18,
+    "sunshine": 2.11,
+    "kWhPerHour": 0.56
+  },
+  {
+    "date": "2025-05-26",
+    "production": 3.39,
+    "sunshine": 11.16,
+    "kWhPerHour": 0.3
+  },
+  {
+    "date": "2025-05-27",
+    "production": 2.4,
+    "sunshine": 11.85,
+    "kWhPerHour": 0.2
+  },
+  {
+    "date": "2025-05-28",
+    "production": 1.43,
+    "sunshine": 7.15,
+    "kWhPerHour": 0.2
+  },
+  {
+    "date": "2025-05-29",
+    "production": 2.99,
+    "sunshine": 13.13,
+    "kWhPerHour": 0.23
+  },
+  {
+    "date": "2025-05-30",
+    "production": 2.03,
+    "sunshine": 9.78,
+    "kWhPerHour": 0.21
+  },
+  {
+    "date": "2025-05-31",
+    "production": 2.86,
+    "sunshine": 13.4,
+    "kWhPerHour": 0.21
+  },
+  {
+    "date": "2025-06-01",
+    "production": 2.42,
+    "sunshine": 10.06,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-06-02",
+    "production": 1.54,
+    "sunshine": 13.67,
+    "kWhPerHour": 0.11
+  },
+  {
+    "date": "2025-06-03",
+    "production": 3.57,
+    "sunshine": 13.94,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2025-06-04",
+    "production": 2.02,
+    "sunshine": 13.18,
+    "kWhPerHour": 0.15
+  },
+  {
+    "date": "2025-06-05",
+    "production": 1.57,
+    "sunshine": 11.84,
+    "kWhPerHour": 0.13
+  },
+  {
+    "date": "2025-06-06",
+    "production": 1.7,
+    "sunshine": 9.26,
+    "kWhPerHour": 0.18
+  },
+  {
+    "date": "2025-06-07",
+    "production": 2.04,
+    "sunshine": 13.24,
+    "kWhPerHour": 0.15
+  },
+  {
+    "date": "2025-06-08",
+    "production": 2.22,
+    "sunshine": 14.18,
+    "kWhPerHour": 0.16
+  },
+  {
+    "date": "2025-06-09",
+    "production": 2.24,
+    "sunshine": 14.02,
+    "kWhPerHour": 0.16
+  },
+  {
+    "date": "2025-06-10",
+    "production": 1.1,
+    "sunshine": 4.6,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-06-11",
+    "production": 2.93,
+    "sunshine": 13.05,
+    "kWhPerHour": 0.22
+  },
+  {
+    "date": "2025-06-12",
+    "production": 3.73,
+    "sunshine": 15.39,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-06-13",
+    "production": 3.83,
+    "sunshine": 15.4,
+    "kWhPerHour": 0.25
+  },
+  {
+    "date": "2025-06-14",
+    "production": 3.73,
+    "sunshine": 15.41,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-06-15",
+    "production": 3.28,
+    "sunshine": 13,
+    "kWhPerHour": 0.25
+  },
+  {
+    "date": "2025-06-16",
+    "production": 1.91,
+    "sunshine": 9.74,
+    "kWhPerHour": 0.2
+  },
+  {
+    "date": "2025-06-17",
+    "production": 3.51,
+    "sunshine": 14.54,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-06-18",
+    "production": 3.19,
+    "sunshine": 12.83,
+    "kWhPerHour": 0.25
+  },
+  {
+    "date": "2025-06-19",
+    "production": 2.99,
+    "sunshine": 15.38,
+    "kWhPerHour": 0.19
+  },
+  {
+    "date": "2025-06-20",
+    "production": 3.39,
+    "sunshine": 15.43,
+    "kWhPerHour": 0.22
+  },
+  {
+    "date": "2025-06-21",
+    "production": 3.41,
+    "sunshine": 15.45,
+    "kWhPerHour": 0.22
+  },
+  {
+    "date": "2025-06-22",
+    "production": 3.45,
+    "sunshine": 15.43,
+    "kWhPerHour": 0.22
+  },
+  {
+    "date": "2025-06-23",
+    "production": 2.05,
+    "sunshine": 14.54,
+    "kWhPerHour": 0.14
+  },
+  {
+    "date": "2025-06-24",
+    "production": 1.54,
+    "sunshine": 8.11,
+    "kWhPerHour": 0.19
+  },
+  {
+    "date": "2025-06-25",
+    "production": 1.92,
+    "sunshine": 9.55,
+    "kWhPerHour": 0.2
+  },
+  {
+    "date": "2025-06-26",
+    "production": 2.24,
+    "sunshine": 12.39,
+    "kWhPerHour": 0.18
+  },
+  {
+    "date": "2025-06-27",
+    "production": 1.45,
+    "sunshine": 9.55,
+    "kWhPerHour": 0.15
+  },
+  {
+    "date": "2025-06-28",
+    "production": 3.08,
+    "sunshine": 11.97,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2025-06-29",
+    "production": 1.91,
+    "sunshine": 15.12,
+    "kWhPerHour": 0.13
+  },
+  {
+    "date": "2025-06-30",
+    "production": 3.27,
+    "sunshine": 15.36,
+    "kWhPerHour": 0.21
+  },
+  {
+    "date": "2025-07-01",
+    "production": 3.25,
+    "sunshine": 15.31,
+    "kWhPerHour": 0.21
+  },
+  {
+    "date": "2025-07-02",
+    "production": 3.24,
+    "sunshine": 15.33,
+    "kWhPerHour": 0.21
+  },
+  {
+    "date": "2025-07-03",
+    "production": 1.62,
+    "sunshine": 8.82,
+    "kWhPerHour": 0.18
+  },
+  {
+    "date": "2025-07-04",
+    "production": 3.03,
+    "sunshine": 12.69,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-07-05",
+    "production": 3.26,
+    "sunshine": 13.79,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-07-06",
+    "production": 3.46,
+    "sunshine": 10.29,
+    "kWhPerHour": 0.34
+  },
+  {
+    "date": "2025-07-07",
+    "production": 1.92,
+    "sunshine": 10.04,
+    "kWhPerHour": 0.19
+  },
+  {
+    "date": "2025-07-08",
+    "production": 2.56,
+    "sunshine": 11.51,
+    "kWhPerHour": 0.22
+  },
+  {
+    "date": "2025-07-09",
+    "production": 1.81,
+    "sunshine": 11.09,
+    "kWhPerHour": 0.16
+  },
+  {
+    "date": "2025-07-10",
+    "production": 2.03,
+    "sunshine": 11.52,
+    "kWhPerHour": 0.18
+  },
+  {
+    "date": "2025-07-11",
+    "production": 1.98,
+    "sunshine": 4.72,
+    "kWhPerHour": 0.42
+  },
+  {
+    "date": "2025-07-12",
+    "production": 0.72,
+    "sunshine": 0,
+    "kWhPerHour": null
+  },
+  {
+    "date": "2025-07-13",
+    "production": 2.04,
+    "sunshine": 6.61,
+    "kWhPerHour": 0.31
+  },
+  {
+    "date": "2025-07-14",
+    "production": 3.03,
+    "sunshine": 12.64,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-07-15",
+    "production": 1.35,
+    "sunshine": 11.06,
+    "kWhPerHour": 0.12
+  },
+  {
+    "date": "2025-07-16",
+    "production": 2.04,
+    "sunshine": 14.57,
+    "kWhPerHour": 0.14
+  },
+  {
+    "date": "2025-07-17",
+    "production": 0.83,
+    "sunshine": 6.66,
+    "kWhPerHour": 0.12
+  },
+  {
+    "date": "2025-07-18",
+    "production": 2.08,
+    "sunshine": 13.27,
+    "kWhPerHour": 0.16
+  },
+  {
+    "date": "2025-07-19",
+    "production": 3.31,
+    "sunshine": 14.66,
+    "kWhPerHour": 0.23
+  },
+  {
+    "date": "2025-07-20",
+    "production": 3.41,
+    "sunshine": 14.41,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-07-21",
+    "production": 0.8,
+    "sunshine": 2.4,
+    "kWhPerHour": 0.33
+  },
+  {
+    "date": "2025-07-22",
+    "production": 2.32,
+    "sunshine": 9.99,
+    "kWhPerHour": 0.23
+  },
+  {
+    "date": "2025-07-23",
+    "production": 0.57,
+    "sunshine": 0.14,
+    "kWhPerHour": 4.04
+  },
+  {
+    "date": "2025-07-24",
+    "production": 1.37,
+    "sunshine": 10.03,
+    "kWhPerHour": 0.14
+  },
+  {
+    "date": "2025-07-25",
+    "production": 1.44,
+    "sunshine": 11.03,
+    "kWhPerHour": 0.13
+  },
+  {
+    "date": "2025-07-26",
+    "production": 1.38,
+    "sunshine": 5.12,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2025-07-27",
+    "production": 2.33,
+    "sunshine": 14,
+    "kWhPerHour": 0.17
+  },
+  {
+    "date": "2025-07-28",
+    "production": 2,
+    "sunshine": 8.47,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-07-29",
+    "production": 2.82,
+    "sunshine": 14.16,
+    "kWhPerHour": 0.2
+  },
+  {
+    "date": "2025-07-30",
+    "production": 3.7,
+    "sunshine": 14.13,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2025-07-31",
+    "production": 1.46,
+    "sunshine": 9.84,
+    "kWhPerHour": 0.15
+  },
+  {
+    "date": "2025-08-01",
+    "production": 1.84,
+    "sunshine": 13.84,
+    "kWhPerHour": 0.13
+  },
+  {
+    "date": "2025-08-02",
+    "production": 2.29,
+    "sunshine": 9.5,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-08-03",
+    "production": 1.46,
+    "sunshine": 7.39,
+    "kWhPerHour": 0.2
+  },
+  {
+    "date": "2025-08-04",
+    "production": 2.3,
+    "sunshine": 8.67,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2025-08-05",
+    "production": 0.67,
+    "sunshine": 3.01,
+    "kWhPerHour": 0.22
+  },
+  {
+    "date": "2025-08-06",
+    "production": 2.79,
+    "sunshine": 13.85,
+    "kWhPerHour": 0.2
+  },
+  {
+    "date": "2025-08-07",
+    "production": 3.31,
+    "sunshine": 13,
+    "kWhPerHour": 0.25
+  },
+  {
+    "date": "2025-08-08",
+    "production": 2.92,
+    "sunshine": 9.82,
+    "kWhPerHour": 0.3
+  },
+  {
+    "date": "2025-08-09",
+    "production": 3.23,
+    "sunshine": 13.76,
+    "kWhPerHour": 0.23
+  },
+  {
+    "date": "2025-08-10",
+    "production": 3.37,
+    "sunshine": 13.73,
+    "kWhPerHour": 0.25
+  },
+  {
+    "date": "2025-08-11",
+    "production": 3.7,
+    "sunshine": 13.71,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2025-08-12",
+    "production": 3.64,
+    "sunshine": 13.68,
+    "kWhPerHour": 0.27
+  },
+  {
+    "date": "2025-08-13",
+    "production": 3.29,
+    "sunshine": 13.6,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-08-14",
+    "production": 3.31,
+    "sunshine": 13.59,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-08-15",
+    "production": 3.28,
+    "sunshine": 13.51,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-08-16",
+    "production": 2.24,
+    "sunshine": 9.51,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-08-17",
+    "production": 2.68,
+    "sunshine": 13.31,
+    "kWhPerHour": 0.2
+  },
+  {
+    "date": "2025-08-18",
+    "production": 3.33,
+    "sunshine": 13.33,
+    "kWhPerHour": 0.25
+  },
+  {
+    "date": "2025-08-19",
+    "production": 3.41,
+    "sunshine": 13.26,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2025-08-20",
+    "production": 2.74,
+    "sunshine": 12.84,
+    "kWhPerHour": 0.21
+  },
+  {
+    "date": "2025-08-21",
+    "production": 3.37,
+    "sunshine": 12.99,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2025-08-22",
+    "production": 2.12,
+    "sunshine": 9.81,
+    "kWhPerHour": 0.22
+  },
+  {
+    "date": "2025-08-23",
+    "production": 1.92,
+    "sunshine": 8.83,
+    "kWhPerHour": 0.22
+  },
+  {
+    "date": "2025-08-24",
+    "production": 2.75,
+    "sunshine": 9.56,
+    "kWhPerHour": 0.29
+  },
+  {
+    "date": "2025-08-25",
+    "production": 1.23,
+    "sunshine": 9.44,
+    "kWhPerHour": 0.13
+  },
+  {
+    "date": "2025-08-26",
+    "production": 2.9,
+    "sunshine": 12.54,
+    "kWhPerHour": 0.23
+  },
+  {
+    "date": "2025-08-27",
+    "production": 2.75,
+    "sunshine": 12.43,
+    "kWhPerHour": 0.22
+  },
+  {
+    "date": "2025-08-28",
+    "production": 0.55,
+    "sunshine": 1.15,
+    "kWhPerHour": 0.48
+  },
+  {
+    "date": "2025-08-29",
+    "production": 0.73,
+    "sunshine": 0.31,
+    "kWhPerHour": 2.38
+  },
+  {
+    "date": "2025-08-30",
+    "production": 2.4,
+    "sunshine": 9.18,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2025-08-31",
+    "production": 3.13,
+    "sunshine": 12.16,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2025-09-01",
+    "production": 2.78,
+    "sunshine": 11.66,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-09-02",
+    "production": 0.75,
+    "sunshine": 3.07,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-09-03",
+    "production": 3.04,
+    "sunshine": 11.56,
+    "kWhPerHour": 0.26
+  },
+  {
+    "date": "2025-09-04",
+    "production": 2.53,
+    "sunshine": 10.74,
+    "kWhPerHour": 0.24
+  },
+  {
+    "date": "2025-09-05",
+    "production": 1.01,
+    "sunshine": 5.66,
+    "kWhPerHour": 0.18
+  },
+  {
+    "date": "2025-09-06",
+    "production": 2.41,
+    "sunshine": 0,
+    "kWhPerHour": null
+  }
+]
