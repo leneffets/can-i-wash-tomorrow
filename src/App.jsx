@@ -101,6 +101,8 @@ export default function App() {
   const [error, setError] = useState('');
   const [historical, setHistorical] = useState([]);
   const [monthlyPreset, setMonthlyPreset] = useState({});
+  const [expandedDate, setExpandedDate] = useState(null);
+  const [hourlyData, setHourlyData] = useState({});
 
   useEffect(() => {
     // Use Vite base URL for compatibility with GitHub Pages
@@ -186,23 +188,69 @@ export default function App() {
               </thead>
               <tbody>
                 {forecast.map(day => (
-                  <tr key={day.date} className={formatDate(day.date) === today ? 'highlight' : ''}>
-                    <td>{getWeekday(day.date)}, {formatDate(day.date)} </td>
-                    <td>{day.temperature}</td>
-                    <td>{day.sunshine.toFixed(1)}</td>
-                    <td>
-                      <span className="tooltip">
-                        {/* Always show sun icon for weathercode 0 (clear sky) */}
-                        {WEATHER_CODES[day.weathercode]?.icon || (day.weathercode === 0 ? <Sun size={20} /> : <Wind size={20} />)}
-                        <span className="tooltiptext">{WEATHER_CODES[day.weathercode]?.label || (day.weathercode === 0 ? 'Clear sky' : 'Unknown')}</span>
-                      </span>
-                    </td>
-                    {showPower && <td>{day.estimatedPower.toFixed(2)}</td>}
-                    {showSun && <>
-                      <td>{formatTime(day.sunrise)}</td>
-                      <td>{formatTime(day.sunset)}</td>
-                    </>}
-                  </tr>
+                  <React.Fragment key={day.date}>
+                    <tr
+                      className={expandedDate === day.date ? '' : (formatDate(day.date) === today ? 'highlight' : '')}
+                      style={{ cursor: 'pointer' }}
+                      onClick={async () => {
+                        if (expandedDate === day.date) {
+                          setExpandedDate(null);
+                          return;
+                        }
+                        setExpandedDate(day.date);
+                        if (!hourlyData[day.date]) {
+                          const base = import.meta.env.BASE_URL || '/';
+                          const url = `https://api.open-meteo.com/v1/forecast?latitude=${COORDS.lat}&longitude=${COORDS.lon}&start_date=${day.date}&end_date=${day.date}&hourly=temperature_2m,weathercode,sunshine_duration&timezone=Europe%2FBerlin`;
+                          const res = await fetch(url);
+                          const data = await res.json();
+                          setHourlyData(prev => ({ ...prev, [day.date]: data.hourly }));
+                        }
+                      }}
+                    >
+                      <td>
+                        <span style={{ textDecoration: 'none' }}>{getWeekday(day.date)}, {formatDate(day.date)}</span>
+                      </td>
+                      <td>{day.temperature}</td>
+                      <td>{day.sunshine.toFixed(1)}</td>
+                      <td>
+                        <span className="tooltip">
+                          {/* Always show sun icon for weathercode 0 (clear sky) */}
+                          {WEATHER_CODES[day.weathercode]?.icon || (day.weathercode === 0 ? <Sun size={20} /> : <Wind size={20} />)}
+                          <span className="tooltiptext">{WEATHER_CODES[day.weathercode]?.label || (day.weathercode === 0 ? 'Clear sky' : 'Unknown')}</span>
+                        </span>
+                      </td>
+                      {showPower && <td>{day.estimatedPower.toFixed(2)}</td>}
+                      {showSun && <>
+                        <td>{formatTime(day.sunrise)}</td>
+                        <td>{formatTime(day.sunset)}</td>
+                      </>}
+                    </tr>
+                    {expandedDate === day.date && hourlyData[day.date] && (
+                      hourlyData[day.date].time.map((t, i) => (
+                        <tr key={t} className={(() => {
+                          const now = new Date();
+                          const currentHour = now.getHours();
+                          const rowHour = new Date(t).getHours();
+                          return (expandedDate === day.date && formatDate(day.date) === today && rowHour === currentHour) ? 'highlight' : '';
+                        })()} style={{ background: '#f9f9f9' }}>
+                            <td>{formatTime(t)}</td>
+                            <td>{hourlyData[day.date].temperature_2m[i]}</td>
+                            <td>{(hourlyData[day.date].sunshine_duration[i] / 3600).toFixed(2)}</td>
+                            <td>
+                              <span className="tooltip">
+                                {WEATHER_CODES[hourlyData[day.date].weathercode[i]]?.icon || <Wind size={16} />}
+                                <span className="tooltiptext">{WEATHER_CODES[hourlyData[day.date].weathercode[i]]?.label || 'Unknown'}</span>
+                              </span>
+                            </td>
+                            {showPower && <td>-</td>}
+                            {showSun && <>
+                              <td>-</td>
+                              <td>-</td>
+                            </>}
+                          </tr>
+                      ))
+                    )}
+                  </React.Fragment>
                 ))}
               </tbody>
             </table>

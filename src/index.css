@@ -35,6 +35,8 @@ body {
   padding: 0.75rem 0.5rem;
   text-align: left;
 }
+
+/* Make date column visually clickable, remove underline */
 .table th {
   background: #e9ecef;
   font-weight: 600;
@@ -43,7 +45,7 @@ body {
   border-bottom: 1px solid #e3e3e3;
 }
 .table tr.highlight {
-  background: #ffe066;
+  background: #ffe066 !important;
 }
 
 .toggle {
