@@ -103,14 +103,14 @@ export default function App() {
   const [monthlyPreset, setMonthlyPreset] = useState({});
 
   useEffect(() => {
-    // Load monthly presets from output_monthly.json
-    fetch('/output_monthly.json')
+    // Use Vite base URL for compatibility with GitHub Pages
+    const base = import.meta.env.BASE_URL || '/';
+    fetch(`${base}output_monthly.json`)
       .then(r => r.json())
       .then(data => {
         setMonthlyPreset(data);
       });
-    // Load historical data from output.json
-    fetch('/output.json')
+    fetch(`${base}output.json`)
       .then(r => r.json())
       .then(data => {
         setHistorical(data);
