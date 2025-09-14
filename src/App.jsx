@@ -205,6 +205,17 @@ export default function App() {
                           const data = await res.json();
                           setHourlyData(prev => ({ ...prev, [day.date]: data.hourly }));
                         }
+                        // If today, scroll to current hour after expand
+                        if (formatDate(day.date) === today) {
+                          setTimeout(() => {
+                            const now = new Date();
+                            const hour = now.getHours();
+                            const el = document.getElementById(`hour-row-${hour}`);
+                            if (el) {
+                              el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }
+                          }, 300);
+                        }
                       }}
                     >
                       <td>
@@ -226,13 +237,18 @@ export default function App() {
                       </>}
                     </tr>
                     {expandedDate === day.date && hourlyData[day.date] && (
-                      hourlyData[day.date].time.map((t, i) => (
-                        <tr key={t} className={(() => {
-                          const now = new Date();
-                          const currentHour = now.getHours();
-                          const rowHour = new Date(t).getHours();
-                          return (expandedDate === day.date && formatDate(day.date) === today && rowHour === currentHour) ? 'highlight' : '';
-                        })()} style={{ background: '#f9f9f9' }}>
+                      hourlyData[day.date].time.map((t, i) => {
+                        const now = new Date();
+                        const currentHour = now.getHours();
+                        const rowHour = new Date(t).getHours();
+                        const isCurrentHour = expandedDate === day.date && formatDate(day.date) === today && rowHour === currentHour;
+                        return (
+                          <tr
+                            key={t}
+                            id={isCurrentHour ? `hour-row-${rowHour}` : undefined}
+                            className={isCurrentHour ? 'highlight' : ''}
+                            style={{ background: '#f9f9f9' }}
+                          >
                             <td>{formatTime(t)}</td>
                             <td>{hourlyData[day.date].temperature_2m[i]}</td>
                             <td>{(hourlyData[day.date].sunshine_duration[i] / 3600).toFixed(2)}</td>
@@ -248,7 +264,8 @@ export default function App() {
                               <td>-</td>
                             </>}
                           </tr>
-                      ))
+                        );
+                      })
                     )}
                   </React.Fragment>
                 ))}
