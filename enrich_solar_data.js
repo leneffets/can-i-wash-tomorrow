@@ -10,8 +10,12 @@ if (!inputFile) {
 
 const COORDS = { lat: 52.51732000, lon: 13.58871000 };
 
-function fetchSunshine(date) {
-  const url = `https://archive-api.open-meteo.com/v1/era5?latitude=${COORDS.lat}&longitude=${COORDS.lon}&start_date=${date}&end_date=${date}&daily=sunshine_duration&timezone=Europe%2FBerlin`;
+// Fetch both sunshine duration and shortwave radiation (if available) for a date.
+// Returns: { sunshineHours: number, radiation: number | null }
+function fetchWeatherMetrics(date) {
+  // Request both fields; some archive endpoints may not provide radiation for all datasets,
+  // so radiation can be null and we gracefully fall back to sunshine-based logic.
+  const url = `https://archive-api.open-meteo.com/v1/era5?latitude=${COORDS.lat}&longitude=${COORDS.lon}&start_date=${date}&end_date=${date}&daily=sunshine_duration,shortwave_radiation_sum&timezone=Europe%2FBerlin`;
   return new Promise((resolve) => {
     https.get(url, res => {
       let data = '';
@@ -20,18 +24,20 @@ function fetchSunshine(date) {
         try {
           const json = JSON.parse(data);
           const duration = json.daily?.sunshine_duration?.[0] || 0;
-          resolve(duration / 3600); // hours
+          // shortwave_radiation_sum is typically in MJ/m^2 for daily sums; treat missing as null
+          const radiation = json.daily?.shortwave_radiation_sum?.[0] ?? null;
+          resolve({ sunshineHours: duration / 3600, radiation });
         } catch {
-          resolve(0);
+          resolve({ sunshineHours: 0, radiation: null });
         }
       });
-    }).on('error', () => resolve(0));
+    }).on('error', () => resolve({ sunshineHours: 0, radiation: null }));
   });
 }
 
 async function enrichCSV() {
   const lines = fs.readFileSync(inputFile, 'utf8').split('\n');
-  const header = 'Date,Production (kWh),Sunshine (h),kWh per sunshine hour';
+  const header = 'Date,Production (kWh),Sunshine (h),Shortwave radiation (daily sum),kWh per sunshine hour,kWh per radiation';
   const out = [header];
   const jsonOut = [];
   const monthly = {};
@@ -41,23 +47,35 @@ async function enrichCSV() {
     const parts = line.split(',');
     const date = parts[1];
     const production = parseFloat(parts[2]);
-    const sunshine = await fetchSunshine(date);
+    const metrics = await fetchWeatherMetrics(date);
+    const sunshine = metrics.sunshineHours;
+    const radiation = metrics.radiation; // may be null
     const kWhPerHour = sunshine ? (production / sunshine).toFixed(2) : '';
-    out.push(`${date},${production},${sunshine.toFixed(2)},${kWhPerHour}`);
+    const kWhPerRadiation = (radiation && radiation > 0) ? (production / radiation).toFixed(4) : '';
+    out.push(`${date},${production},${sunshine.toFixed(2)},${radiation ?? ''},${kWhPerHour},${kWhPerRadiation}`);
     jsonOut.push({
       date,
       production,
       sunshine: parseFloat(sunshine.toFixed(2)),
-      kWhPerHour: kWhPerHour ? parseFloat(kWhPerHour) : null
+      radiation: radiation !== null ? parseFloat(radiation) : null,
+      kWhPerHour: kWhPerHour ? parseFloat(kWhPerHour) : null,
+      kWhPerRadiation: kWhPerRadiation ? parseFloat(kWhPerRadiation) : null
     });
-    // Monthly average calculation
+    // Monthly average calculation for both metrics (sunshine-based and radiation-based)
     const month = date.slice(5,7);
-    if (!monthly[month]) monthly[month] = { sum: 0, count: 0 };
+    if (!monthly[month]) monthly[month] = {
+      sumPerHour: 0, countPerHour: 0,
+      sumPerRadiation: 0, countPerRadiation: 0
+    };
     if (kWhPerHour) {
-      monthly[month].sum += parseFloat(kWhPerHour);
-      monthly[month].count++;
+      monthly[month].sumPerHour += parseFloat(kWhPerHour);
+      monthly[month].countPerHour++;
     }
-    console.log(`Processed ${date}: ${sunshine.toFixed(2)}h, ${kWhPerHour} kWh/h`);
+    if (kWhPerRadiation) {
+      monthly[month].sumPerRadiation += parseFloat(kWhPerRadiation);
+      monthly[month].countPerRadiation++;
+    }
+    console.log(`Processed ${date}: ${sunshine.toFixed(2)}h, ${kWhPerHour} kWh/h, ${kWhPerRadiation} kWh per MJ/m2`);
   }
   // Ensure public/ exists
   const publicDir = path.join(process.cwd(), 'public');
@@ -67,7 +85,11 @@ async function enrichCSV() {
   // Write monthly averages
   const monthlyAvg = {};
   Object.keys(monthly).forEach(m => {
-    monthlyAvg[m] = monthly[m].count ? (monthly[m].sum / monthly[m].count) : null;
+    const mobj = monthly[m];
+    monthlyAvg[m] = {
+      kWhPerHour: mobj.countPerHour ? (mobj.sumPerHour / mobj.countPerHour) : null,
+      kWhPerRadiation: mobj.countPerRadiation ? (mobj.sumPerRadiation / mobj.countPerRadiation) : null
+    };
   });
   fs.writeFileSync(path.join(publicDir, 'output_monthly.json'), JSON.stringify(monthlyAvg, null, 2));
   console.log(`Enriched CSV written to output.csv`);

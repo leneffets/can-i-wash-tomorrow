@@ -7,7 +7,14 @@ A mobile-friendly React + Vite single-page app for Berlin's weather and solar fo
 - Displays temperature, weather code (with icons/tooltips), sunshine hours, sunrise/sunset
 - Highlights current date row
 - Two toggles: show/hide estimated solar power, show/hide sunrise/sunset (states saved in localStorage)
-- Estimated solar power production (based on historical data and sunshine hours, with monthly adjustment)
+- Smart solar power prediction using shortwave radiation and sunshine hours:
+  - Daily and hourly production estimates based on historical patterns
+  - Uses shortwave radiation (preferred) or sunshine hours with monthly adjustment
+  - Click any day to see detailed hourly weather and power estimates
+- Interactive features:
+  - Expandable rows show hourly weather and estimated production
+  - Current hour highlighted in hourly view
+  - Automatic scrolling to current hour for today's expanded view
 - Line chart for estimated power and historical production (Recharts)
 - Responsive, plain CSS (no Tailwind)
 
@@ -18,7 +25,7 @@ A mobile-friendly React + Vite single-page app for Berlin's weather and solar fo
 - `.devcontainer/devcontainer.json`: Node dev container
 - `.github/workflows/deploy.yml`: GitHub Pages auto-deploy
 - `vite.config.js`, `index.html`, `package.json`: Vite/React setup
-- `enrich_solar_data.js`: Enriches your CSV production data with sunshine hours and kWh per sunshine hour (writes `output.json` and `output.csv`)
+- `enrich_solar_data.js`: Enriches your CSV production data with sunshine hours and shortwave radiation, computing kWh-per-hour and kWh-per-radiation factors (writes `output.json`, `output.csv`, and monthly averages)
 
 ## Local Development
 ```bash
@@ -36,7 +43,7 @@ Push to `main` branch to auto-deploy via GitHub Actions.
 ## Data Enrichment
 ```bash
 node enrich_solar_data.js input.csv
-# Produces output.json and output.csv for use in the app
+# Produces output.json (with radiation data), output.csv, and output_monthly.json (conversion factors)
 ```
 
 ## API & Libraries

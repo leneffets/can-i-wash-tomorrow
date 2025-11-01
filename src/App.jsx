@@ -42,15 +42,23 @@ const COORDS = { lat: 52.51732000, lon: 13.58871000 };
 function getMonthlyAverages(data) {
   const months = {};
   data.forEach(row => {
-    if (!row.sunshine || !row.kWhPerHour) return;
     const month = row.date.slice(5,7); // 'MM'
-    if (!months[month]) months[month] = { sum: 0, count: 0 };
-    months[month].sum += row.kWhPerHour;
-    months[month].count++;
+    if (!months[month]) months[month] = { sumHour: 0, countHour: 0, sumRad: 0, countRad: 0 };
+    if (row.kWhPerHour) {
+      months[month].sumHour += row.kWhPerHour;
+      months[month].countHour++;
+    }
+    if (row.kWhPerRadiation) {
+      months[month].sumRad += row.kWhPerRadiation;
+      months[month].countRad++;
+    }
   });
   const avg = {};
   Object.keys(months).forEach(m => {
-    avg[m] = months[m].count ? months[m].sum / months[m].count : 0.7;
+    avg[m] = {
+      kWhPerHour: months[m].countHour ? (months[m].sumHour / months[m].countHour) : null,
+      kWhPerRadiation: months[m].countRad ? (months[m].sumRad / months[m].countRad) : null
+    };
   });
   return avg;
 }
@@ -128,23 +136,38 @@ export default function App() {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`https://api.open-meteo.com/v1/forecast?latitude=${COORDS.lat}&longitude=${COORDS.lon}&daily=temperature_2m_max,weathercode,sunshine_duration,sunrise,sunset&timezone=Europe%2FBerlin`)
+    // Request daily shortwave_radiation_sum in addition to sunshine_duration so we can prefer radiation-based estimates
+    // Get yesterday's date for the API request
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const yesterdayStr = yesterday.toISOString().split('T')[0];
+    
+    fetch(`https://api.open-meteo.com/v1/forecast?latitude=${COORDS.lat}&longitude=${COORDS.lon}&daily=temperature_2m_max,weathercode,sunshine_duration,shortwave_radiation_sum,sunrise,sunset&timezone=Europe%2FBerlin&past_days=1`)
       .then(r => r.json())
       .then(data => {
         // Use monthly averages for estimation
         const monthlyAvg = historical.length > 0 ? getMonthlyAverages(historical) : monthlyPreset;
         const days = data.daily.time.map((date, i) => {
           const sunshineHours = data.daily.sunshine_duration[i] / 3600;
+          const forecastRadiation = data.daily.shortwave_radiation_sum ? data.daily.shortwave_radiation_sum[i] : null; // MJ/m2
           const month = date.slice(5,7);
-          const kWhPerHour = monthlyAvg[month] || 0.2;
+          const monthObj = monthlyAvg[month] || {};
+          let estimated = 0;
+          // Prefer radiation-based estimate when forecast radiation and historical monthly factor exist
+          if (forecastRadiation && monthObj.kWhPerRadiation) {
+            estimated = forecastRadiation * monthObj.kWhPerRadiation;
+          } else if (monthObj.kWhPerHour) {
+            estimated = sunshineHours * monthObj.kWhPerHour;
+          }
           return {
             date,
             temperature: data.daily.temperature_2m_max[i],
             weathercode: data.daily.weathercode[i],
             sunshine: sunshineHours,
+            forecastRadiation,
             sunrise: data.daily.sunrise[i],
             sunset: data.daily.sunset[i],
-            estimatedPower: sunshineHours * kWhPerHour,
+            estimatedPower: estimated,
           };
         });
         setForecast(days);
@@ -200,10 +223,29 @@ export default function App() {
                         setExpandedDate(day.date);
                         if (!hourlyData[day.date]) {
                           const base = import.meta.env.BASE_URL || '/';
-                          const url = `https://api.open-meteo.com/v1/forecast?latitude=${COORDS.lat}&longitude=${COORDS.lon}&start_date=${day.date}&end_date=${day.date}&hourly=temperature_2m,weathercode,sunshine_duration&timezone=Europe%2FBerlin`;
+                          // Request hourly shortwave_radiation (W/m²) in addition to sunshine_duration
+                          const url = `https://api.open-meteo.com/v1/forecast?latitude=${COORDS.lat}&longitude=${COORDS.lon}&start_date=${day.date}&end_date=${day.date}&hourly=temperature_2m,weathercode,sunshine_duration,shortwave_radiation&timezone=Europe%2FBerlin`;
                           const res = await fetch(url);
                           const data = await res.json();
-                          setHourlyData(prev => ({ ...prev, [day.date]: data.hourly }));
+                          // Compute per-hour estimates using monthly medians (prefer radiation when available)
+                          const monthlyAvg = historical.length > 0 ? getMonthlyAverages(historical) : monthlyPreset;
+                          const month = day.date.slice(5,7);
+                          const monthObj = monthlyAvg[month] || {};
+                          const hourlyEstimates = data.hourly.time.map((t, i) => {
+                            // shortwave_radiation is W/m2 (instantaneous hourly), convert to MJ/m2 per hour: W/m2 * 3600 s / 1e6 = MJ/m2
+                            const sw = data.hourly.shortwave_radiation ? data.hourly.shortwave_radiation[i] : null;
+                            const sw_MJ_per_m2 = (sw !== null && sw !== undefined) ? (sw * 3600 / 1e6) : null;
+                            const sunshineHours = data.hourly.sunshine_duration ? (data.hourly.sunshine_duration[i] / 3600) : 0;
+                            let est = 0;
+                            if (sw_MJ_per_m2 !== null && monthObj.kWhPerRadiation) {
+                              est = sw_MJ_per_m2 * monthObj.kWhPerRadiation;
+                            } else if (monthObj.kWhPerHour) {
+                              est = sunshineHours * monthObj.kWhPerHour;
+                            } 
+                            return est;
+                          });
+
+                          setHourlyData(prev => ({ ...prev, [day.date]: { hourly: data.hourly, estimates: hourlyEstimates } }));
                         }
                         // If today, scroll to current hour after expand
                         if (formatDate(day.date) === today) {
@@ -237,11 +279,15 @@ export default function App() {
                       </>}
                     </tr>
                     {expandedDate === day.date && hourlyData[day.date] && (
-                      hourlyData[day.date].time.map((t, i) => {
+                      hourlyData[day.date].hourly.time.map((t, i) => {
                         const now = new Date();
                         const currentHour = now.getHours();
                         const rowHour = new Date(t).getHours();
                         const isCurrentHour = expandedDate === day.date && formatDate(day.date) === today && rowHour === currentHour;
+                        const temp = hourlyData[day.date].hourly.temperature_2m[i];
+                        const sunshineHour = hourlyData[day.date].hourly.sunshine_duration ? (hourlyData[day.date].hourly.sunshine_duration[i] / 3600) : 0;
+                        const weathercode = hourlyData[day.date].hourly.weathercode ? hourlyData[day.date].hourly.weathercode[i] : null;
+                        const estimate = hourlyData[day.date].estimates ? hourlyData[day.date].estimates[i] : null;
                         return (
                           <tr
                             key={t}
@@ -250,15 +296,15 @@ export default function App() {
                             style={{ background: '#f9f9f9' }}
                           >
                             <td>{formatTime(t)}</td>
-                            <td>{hourlyData[day.date].temperature_2m[i]}</td>
-                            <td>{(hourlyData[day.date].sunshine_duration[i] / 3600).toFixed(2)}</td>
+                            <td>{temp}</td>
+                            <td>{sunshineHour.toFixed(2)}</td>
                             <td>
                               <span className="tooltip">
-                                {WEATHER_CODES[hourlyData[day.date].weathercode[i]]?.icon || <Wind size={16} />}
-                                <span className="tooltiptext">{WEATHER_CODES[hourlyData[day.date].weathercode[i]]?.label || 'Unknown'}</span>
+                                {WEATHER_CODES[weathercode]?.icon || <Wind size={16} />}
+                                <span className="tooltiptext">{WEATHER_CODES[weathercode]?.label || 'Unknown'}</span>
                               </span>
                             </td>
-                            {showPower && <td>-</td>}
+                            {showPower && <td>{estimate !== null && estimate !== undefined ? estimate.toFixed(3) : '-'}</td>}
                             {showSun && <>
                               <td>-</td>
                               <td>-</td>
