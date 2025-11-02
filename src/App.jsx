@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import Card from './components/Card';
 import CardContent from './components/CardContent';
-import { Sun, Sunrise, Sunset, CloudSun, CloudRain, Cloud, Snowflake, Zap, Wind, CloudDrizzle, CloudFog, CloudLightning, CloudSnow, CloudHail } from 'lucide-react';
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend } from 'recharts';
+import { Sun, CloudSun, CloudRain, Cloud, Zap, Wind, CloudDrizzle, CloudFog, CloudSnow, CloudHail } from 'lucide-react';
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 
 const WEATHER_CODES = {
   0: { icon: <Sun size={20} />, label: 'Clear sky' },
@@ -101,6 +102,12 @@ function Toggle({ label, checked, onChange }) {
   );
 }
 
+Toggle.propTypes = {
+  label: PropTypes.string.isRequired,
+  checked: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
+
 export default function App() {
   const [forecast, setForecast] = useState([]);
   const [showPower, setShowPower] = useState(() => localStorage.getItem('showPower') === 'true');
@@ -140,7 +147,6 @@ export default function App() {
     // Get yesterday's date for the API request
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
-    const yesterdayStr = yesterday.toISOString().split('T')[0];
     
     fetch(`https://api.open-meteo.com/v1/forecast?latitude=${COORDS.lat}&longitude=${COORDS.lon}&daily=temperature_2m_max,weathercode,sunshine_duration,shortwave_radiation_sum,sunrise,sunset&timezone=Europe%2FBerlin&past_days=1`)
       .then(r => r.json())
@@ -222,7 +228,6 @@ export default function App() {
                         }
                         setExpandedDate(day.date);
                         if (!hourlyData[day.date]) {
-                          const base = import.meta.env.BASE_URL || '/';
                           // Request hourly shortwave_radiation (W/m²) in addition to sunshine_duration
                           const url = `https://api.open-meteo.com/v1/forecast?latitude=${COORDS.lat}&longitude=${COORDS.lon}&start_date=${day.date}&end_date=${day.date}&hourly=temperature_2m,weathercode,sunshine_duration,shortwave_radiation&timezone=Europe%2FBerlin`;
                           const res = await fetch(url);

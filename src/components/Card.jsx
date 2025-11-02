@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Card.css';
 
 export default function Card({ children, className = '', ...props }) {
@@ -8,3 +9,8 @@ export default function Card({ children, className = '', ...props }) {
     </div>
   );
 }
+
+Card.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+};
