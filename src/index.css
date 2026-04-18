@@ -1,8 +1,43 @@
+:root {
+  /* Light mode colors */
+  --bg-primary: #f6f8fa;
+  --bg-secondary: #fff;
+  --text-primary: #222;
+  --text-secondary: #666;
+  --border-color: #e3e3e3;
+  --table-header-bg: #e9ecef;
+  --table-row-border: #e3e3e3;
+  --shadow-light: 0 2px 8px rgba(0,0,0,0.07);
+  --shadow-hover: 0 4px 16px rgba(0,0,0,0.12);
+  --tooltip-bg: #222;
+  --tooltip-text: #fff;
+  --highlight-bg: #ffe066;
+}
+
+/* Dark mode colors */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #e8e8e8;
+    --text-secondary: #b0b0b0;
+    --border-color: #404040;
+    --table-header-bg: #333333;
+    --table-row-border: #404040;
+    --shadow-light: 0 2px 8px rgba(0,0,0,0.3);
+    --shadow-hover: 0 4px 16px rgba(0,0,0,0.5);
+    --tooltip-bg: #e8e8e8;
+    --tooltip-text: #1a1a1a;
+    --highlight-bg: #b8860b;
+  }
+}
+
 body {
   font-family: 'Inter', Arial, sans-serif;
-  background: #f6f8fa;
+  background: var(--bg-primary);
   margin: 0;
-  color: #222;
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #root {
@@ -12,15 +47,15 @@ body {
 }
 
 .card {
-  background: #fff;
+  background: var(--bg-secondary);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  box-shadow: var(--shadow-light);
   margin-bottom: 1.5rem;
   padding: 1rem 1.5rem;
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s, background-color 0.3s ease;
 }
 .card:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  box-shadow: var(--shadow-hover);
 }
 .card-content {
   padding: 0.5rem 0;
@@ -38,14 +73,14 @@ body {
 
 /* Make date column visually clickable, remove underline */
 .table th {
-  background: #e9ecef;
+  background: var(--table-header-bg);
   font-weight: 600;
 }
 .table tr {
-  border-bottom: 1px solid #e3e3e3;
+  border-bottom: 1px solid var(--table-row-border);
 }
 .table tr.highlight {
-  background: #ffe066 !important;
+  background: var(--highlight-bg) !important;
 }
 
 .toggle {
@@ -66,16 +101,16 @@ body {
   .table th, .table td {
     padding: 0.5rem 0.75rem;
     text-align: center;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--table-row-border);
     box-sizing: border-box;
     word-break: break-word;
   }
   .table th {
-    background: #f7f7f7;
+    background: var(--table-header-bg);
     font-weight: 600;
   }
   .table tr.highlight {
-    background: #ffe9c6;
+    background: var(--highlight-bg);
   }
   gap: 0.5rem;
   margin-bottom: 1rem;
@@ -84,7 +119,7 @@ body {
   position: relative;
   width: 44px;
   height: 24px;
-  background: #e3e3e3;
+  background: var(--border-color);
   border-radius: 12px;
   cursor: pointer;
   transition: background 0.2s;
@@ -98,7 +133,7 @@ body {
   left: 2px;
   width: 20px;
   height: 20px;
-  background: #fff;
+  background: var(--bg-secondary);
   border-radius: 50%;
   transition: left 0.2s;
 }
@@ -126,8 +161,8 @@ body {
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 120px;
-  background-color: #222;
-  color: #fff;
+  background-color: var(--tooltip-bg);
+  color: var(--tooltip-text);
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
