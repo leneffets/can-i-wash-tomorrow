@@ -298,7 +298,7 @@ export default function App() {
                             key={t}
                             id={isCurrentHour ? `hour-row-${rowHour}` : undefined}
                             className={isCurrentHour ? 'highlight' : ''}
-                            style={{ background: '#f9f9f9' }}
+                            style={{ background: 'var(--bg-secondary)' }}
                           >
                             <td>{formatTime(t)}</td>
                             <td>{temp}</td>
