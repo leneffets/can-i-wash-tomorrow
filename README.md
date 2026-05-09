@@ -3,6 +3,7 @@
 A mobile-friendly React + Vite single-page app for Berlin's weather and solar forecast, ready for GitHub Pages deployment.
 
 ## Features
+- PWA support - install as app on mobile/tablet (iOS, Android, desktop)
 - Fetches weather forecast for Berlin from Open-Meteo API
 - Displays temperature, weather code (with icons/tooltips), sunshine hours, sunrise/sunset
 - Highlights current date row
@@ -32,6 +33,12 @@ A mobile-friendly React + Vite single-page app for Berlin's weather and solar fo
 npm install
 npm run dev
 ```
+
+## Install as App
+On mobile/tablet, open in Chrome or Safari, then:
+- **Chrome/Android:** Menu → "Install app" or "Add to Home screen"
+- **Safari/iOS:** Share → "Add to Home Screen"
+- **Desktop:** Address bar install icon (Edge/Chrome)
 
 ## Build & Deploy
 ```bash
