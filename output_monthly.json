@@ -1,50 +1,50 @@
 {
   "10": {
-    "kWhPerHour": 0.1998245614035088,
+    "kWhPerHour": 0.1917543859649123,
     "kWhPerRadiation": 0.14177741935483865
   },
   "11": {
-    "kWhPerHour": 0.9934615384615386,
-    "kWhPerRadiation": 0.11363666666666665
+    "kWhPerHour": 0.633076923076923,
+    "kWhPerRadiation": 0.11546166666666664
   },
   "12": {
-    "kWhPerHour": 0.8854545454545456,
-    "kWhPerRadiation": 0.13001290322580647
+    "kWhPerHour": 0.34765957446808504,
+    "kWhPerRadiation": 0.11774516129032259
+  },
+  "06": {
+    "kWhPerHour": 0.24155172413793116,
+    "kWhPerRadiation": 0.12430172413793104
+  },
+  "07": {
+    "kWhPerHour": 0.29770491803278687,
+    "kWhPerRadiation": 0.13070806451612904
   },
   "08": {
-    "kWhPerHour": 0.2924193548387098,
+    "kWhPerHour": 0.2561290322580645,
     "kWhPerRadiation": 0.14986774193548388
   },
   "09": {
-    "kWhPerHour": 0.373728813559322,
+    "kWhPerHour": 0.36288135593220344,
     "kWhPerRadiation": 0.16102833333333333
   },
   "01": {
-    "kWhPerHour": 0.12920000000000006,
-    "kWhPerRadiation": 0.11476774193548386
+    "kWhPerHour": 0.10186046511627907,
+    "kWhPerRadiation": 0.10082727272727268
   },
   "02": {
-    "kWhPerHour": 0.3739130434782609,
+    "kWhPerHour": 1.1300000000000001,
     "kWhPerRadiation": 0.17550000000000002
   },
   "03": {
-    "kWhPerHour": 0.362258064516129,
+    "kWhPerHour": 0.34741935483870967,
     "kWhPerRadiation": 0.1736774193548387
   },
   "04": {
-    "kWhPerHour": 0.2748148148148148,
+    "kWhPerHour": 0.26444444444444454,
     "kWhPerRadiation": 0.15941034482758623
   },
   "05": {
-    "kWhPerHour": 0.26096774193548394,
+    "kWhPerHour": 0.25,
     "kWhPerRadiation": 0.13901290322580645
-  },
-  "06": {
-    "kWhPerHour": 0.1993333333333333,
-    "kWhPerRadiation": 0.10936666666666665
-  },
-  "07": {
-    "kWhPerHour": 0.3436666666666667,
-    "kWhPerRadiation": 0.1166967741935484
   }
 }
