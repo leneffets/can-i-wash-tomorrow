@@ -178,6 +178,7 @@ function hourlyChartOptions(weatherLabels = []) {
   return {
     responsive: true,
     maintainAspectRatio: false,
+    events: ['mousemove', 'mouseout', 'click', 'touchstart', 'touchmove', 'touchend'],
     interaction: {
       mode: 'index',
       intersect: false,
@@ -392,6 +393,20 @@ function HourlyChart({ date, hourlyEntry, isCurrentDay }) {
     },
   }), [date, hourlyEntry, isCurrentDay]);
 
+  const dismissTouchTooltipPlugin = useMemo(() => ({
+    id: `dismiss-touch-tooltip-${date}`,
+    afterEvent(chart, args) {
+      if (args.event.type !== 'touchend') return;
+
+      window.clearTimeout(chart.$touchTooltipTimeout);
+      chart.$touchTooltipTimeout = window.setTimeout(() => {
+        chart.setActiveElements([]);
+        chart.tooltip?.setActiveElements([], { x: 0, y: 0 });
+        chart.update();
+      }, 1800);
+    },
+  }), [date]);
+
   return (
     <>
       {isCurrentDay && <div className="current-time-hint">Current time: {currentTime}</div>}
@@ -400,7 +415,7 @@ function HourlyChart({ date, hourlyEntry, isCurrentDay }) {
           type="bar"
           data={data}
           options={hourlyChartOptions(weatherLabels)}
-          plugins={[nowPlugin]}
+          plugins={[nowPlugin, dismissTouchTooltipPlugin]}
         />
       </div>
     </>

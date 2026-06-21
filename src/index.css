@@ -59,6 +59,7 @@ body {
 }
 .card-content {
   padding: 0.5rem 0;
+  overflow-x: auto;
 }
 
 .table {
@@ -95,7 +96,8 @@ body {
 
 .hourly-chart {
   height: 280px;
-  min-width: 520px;
+  max-width: 100%;
+  min-width: 0;
   width: 100%;
 }
 
@@ -173,6 +175,10 @@ body {
   .table th, .table td {
     padding: 0.5rem 0.25rem;
     font-size: 0.95em;
+  }
+  .hourly-chart {
+    height: 250px;
+    width: calc(100vw - 2rem);
   }
 }
 
