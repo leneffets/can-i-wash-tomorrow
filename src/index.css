@@ -83,6 +83,28 @@ body {
   background: var(--highlight-bg) !important;
 }
 
+.chart-box {
+  height: 220px;
+  width: 100%;
+}
+
+.hourly-chart-row td {
+  padding: 0.75rem 0.25rem;
+  background: var(--bg-secondary);
+}
+
+.hourly-chart {
+  height: 280px;
+  min-width: 520px;
+  width: 100%;
+}
+
+.current-time-hint {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin: 0 0 0.35rem 0.25rem;
+}
+
 .toggle {
   display: flex;
   align-items: center;

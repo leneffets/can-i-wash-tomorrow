@@ -16,7 +16,8 @@ A mobile-friendly React + Vite single-page app for Berlin's weather and solar fo
   - Expandable rows show hourly weather and estimated production
   - Current hour highlighted in hourly view
   - Automatic scrolling to current hour for today's expanded view
-- Line chart for estimated power and historical production (Recharts)
+- Chart.js graphs for estimated power and historical production
+- Mixed hourly Chart.js graph on day click with temperature, sunhours, and expected production
 - Responsive, plain CSS (no Tailwind)
 
 ## Project Structure
@@ -56,7 +57,7 @@ node enrich_solar_data.js input.csv
 ## API & Libraries
 - **Weather API:** [Open-Meteo](https://open-meteo.com/)
 - **Icons:** [Lucide React](https://lucide.dev/)
-- **Charts:** [Recharts](https://recharts.org/)
+- **Charts:** [Chart.js](https://www.chartjs.org/) with React bindings
 
 ## License
 MIT (see LICENSE)

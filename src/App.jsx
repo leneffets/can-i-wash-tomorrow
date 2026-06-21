@@ -1,9 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import Card from './components/Card';
 import CardContent from './components/CardContent';
 import { Sun, CloudSun, CloudRain, Cloud, Zap, Wind, CloudDrizzle, CloudFog, CloudSnow, CloudHail } from 'lucide-react';
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
+import {
+  BarElement,
+  BarController,
+  CategoryScale,
+  Chart as ChartJS,
+  Filler,
+  Legend,
+  LinearScale,
+  LineController,
+  LineElement,
+  PointElement,
+  Tooltip as ChartTooltip,
+} from 'chart.js';
+import { Chart, Line } from 'react-chartjs-2';
+
+ChartJS.register(
+  BarElement,
+  BarController,
+  CategoryScale,
+  ChartTooltip,
+  Filler,
+  Legend,
+  LinearScale,
+  LineController,
+  LineElement,
+  PointElement,
+);
 
 const WEATHER_CODES = {
   0: { icon: <Sun size={20} />, label: 'Clear sky' },
@@ -82,6 +108,317 @@ function getNowString() {
   const pad = n => String(n).padStart(2, '0');
   return `${pad(d.getDate())}.${pad(d.getMonth()+1)}.${d.getFullYear()} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
 }
+function getWeatherLabel(weathercode) {
+  return WEATHER_CODES[weathercode]?.label || (weathercode === 0 ? 'Clear sky' : 'Unknown');
+}
+
+function createDotPattern(ctx, color = 'rgba(255, 152, 0, 0.35)') {
+  const patternCanvas = document.createElement('canvas');
+  patternCanvas.width = 8;
+  patternCanvas.height = 8;
+  const patternCtx = patternCanvas.getContext('2d');
+  patternCtx.fillStyle = color;
+  patternCtx.beginPath();
+  patternCtx.arc(2, 2, 1.25, 0, Math.PI * 2);
+  patternCtx.fill();
+  return ctx.createPattern(patternCanvas, 'repeat');
+}
+
+function chartTextColor() {
+  return getComputedStyle(document.documentElement).getPropertyValue('--text-secondary').trim() || '#666';
+}
+
+function chartGridColor() {
+  return getComputedStyle(document.documentElement).getPropertyValue('--table-row-border').trim() || '#e3e3e3';
+}
+
+function baseChartOptions(yTitle, extraScales = {}) {
+  return {
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: {
+      mode: 'index',
+      intersect: false,
+    },
+    plugins: {
+      legend: {
+        labels: {
+          color: chartTextColor(),
+          usePointStyle: true,
+          boxWidth: 8,
+        },
+      },
+      tooltip: {
+        callbacks: {
+          label(context) {
+            const unit = context.dataset.unit ? ` ${context.dataset.unit}` : '';
+            const value = typeof context.parsed.y === 'number' ? context.parsed.y.toFixed(2) : context.formattedValue;
+            return `${context.dataset.label}: ${value}${unit}`;
+          },
+        },
+      },
+    },
+    scales: {
+      x: {
+        ticks: { color: chartTextColor(), maxRotation: 0 },
+        grid: { color: chartGridColor() },
+      },
+      y: {
+        title: { display: true, text: yTitle, color: chartTextColor() },
+        ticks: { color: chartTextColor() },
+        grid: { color: chartGridColor() },
+        beginAtZero: true,
+      },
+      ...extraScales,
+    },
+  };
+}
+
+function hourlyChartOptions(weatherLabels = []) {
+  return {
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: {
+      mode: 'index',
+      intersect: false,
+    },
+    plugins: {
+      legend: {
+        labels: {
+          color: chartTextColor(),
+          usePointStyle: true,
+          boxWidth: 8,
+        },
+      },
+      tooltip: {
+        callbacks: {
+          label(context) {
+            const unit = context.dataset.unit ? ` ${context.dataset.unit}` : '';
+            const value = typeof context.parsed.y === 'number' ? context.parsed.y.toFixed(2) : context.formattedValue;
+            return `${context.dataset.label}: ${value}${unit}`;
+          },
+          afterBody(items) {
+            const index = items[0]?.dataIndex;
+            return typeof index === 'number' ? `Weather: ${weatherLabels[index] || 'Unknown'}` : '';
+          },
+        },
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: chartTextColor(),
+          maxRotation: 0,
+          autoSkip: true,
+          maxTicksLimit: 8,
+        },
+        grid: { display: false },
+      },
+      temp: {
+        type: 'linear',
+        position: 'left',
+        title: { display: true, text: 'Temperature °C', color: chartTextColor() },
+        ticks: { color: chartTextColor(), maxTicksLimit: 5 },
+        grid: { color: chartGridColor(), drawTicks: false },
+      },
+      power: {
+        type: 'linear',
+        position: 'right',
+        title: { display: true, text: 'Production kWh', color: chartTextColor() },
+        ticks: { color: chartTextColor(), maxTicksLimit: 5 },
+        grid: { drawOnChartArea: false },
+        beginAtZero: true,
+      },
+      sun: {
+        type: 'linear',
+        display: false,
+        min: 0,
+        max: 1,
+      },
+    },
+  };
+}
+
+function DailyForecastChart({ forecast }) {
+  const data = useMemo(() => ({
+    labels: forecast.map(day => formatDate(day.date)),
+    datasets: [
+      {
+        label: 'Est. Power',
+        unit: 'kWh',
+        data: forecast.map(day => day.estimatedPower),
+        borderColor: '#f97316',
+        backgroundColor: 'rgba(249, 115, 22, 0.16)',
+        tension: 0.35,
+        fill: true,
+        pointRadius: 3,
+      },
+    ],
+  }), [forecast]);
+
+  return (
+    <div className="chart-box">
+      <Line data={data} options={baseChartOptions('kWh')} />
+    </div>
+  );
+}
+
+DailyForecastChart.propTypes = {
+  forecast: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
+function HistoricalChart({ historical }) {
+  const data = useMemo(() => ({
+    labels: historical.map(row => formatDate(row.date)),
+    datasets: [
+      {
+        label: 'Historical',
+        unit: 'kWh',
+        data: historical.map(row => row.production),
+        borderColor: '#2563eb',
+        backgroundColor: 'rgba(37, 99, 235, 0.12)',
+        tension: 0.25,
+        fill: true,
+        pointRadius: 0,
+      },
+    ],
+  }), [historical]);
+
+  return (
+    <div className="chart-box">
+      <Line data={data} options={baseChartOptions('kWh')} />
+    </div>
+  );
+}
+
+HistoricalChart.propTypes = {
+  historical: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
+function HourlyChart({ date, hourlyEntry, isCurrentDay }) {
+  const currentTime = useMemo(() => formatTime(new Date().toISOString()), []);
+  const weatherLabels = useMemo(() => (
+    hourlyEntry.hourly.weathercode?.map(getWeatherLabel) || []
+  ), [hourlyEntry]);
+  const data = useMemo(() => {
+    const hourly = hourlyEntry.hourly;
+    return {
+      labels: hourly.time.map(formatTime),
+      datasets: [
+        {
+          type: 'bar',
+          label: 'Sunhours',
+          unit: 'h',
+          data: hourly.sunshine_duration.map(seconds => seconds / 3600),
+          yAxisID: 'sun',
+          backgroundColor: 'rgba(148, 163, 184, 0.16)',
+          borderColor: 'rgba(148, 163, 184, 0)',
+          borderWidth: 0,
+          barPercentage: 1,
+          categoryPercentage: 1,
+          order: 10,
+        },
+        {
+          type: 'line',
+          label: 'Temperature',
+          unit: '°C',
+          data: hourly.temperature_2m,
+          yAxisID: 'temp',
+          borderColor: '#0284c7',
+          backgroundColor: 'rgba(2, 132, 199, 0.1)',
+          pointBackgroundColor: '#0284c7',
+          pointBorderColor: '#0284c7',
+          borderWidth: 2,
+          tension: 0.3,
+          pointRadius: 2,
+          fill: false,
+          order: 1,
+        },
+        {
+          type: 'line',
+          label: 'Expected production',
+          unit: 'kWh',
+          data: hourlyEntry.estimates,
+          yAxisID: 'power',
+          borderColor: '#f97316',
+          borderDash: [4, 4],
+          borderWidth: 2.5,
+          backgroundColor(context) {
+            const chart = context.chart;
+            const { chartArea, ctx } = chart;
+            if (!chartArea) return 'rgba(249, 115, 22, 0.12)';
+            return createDotPattern(ctx, 'rgba(249, 115, 22, 0.28)');
+          },
+          tension: 0.35,
+          pointRadius: 2.5,
+          fill: true,
+          order: 0,
+        },
+      ],
+    };
+  }, [hourlyEntry]);
+
+  const nowPlugin = useMemo(() => ({
+    id: `current-time-${date}`,
+    afterDatasetsDraw(chart) {
+      if (!isCurrentDay) return;
+      const now = new Date();
+      const currentHourIndex = hourlyEntry.hourly.time.findIndex(t => new Date(t).getHours() === now.getHours());
+      if (currentHourIndex === -1) return;
+
+      const xScale = chart.scales.x;
+      const { top, bottom, right } = chart.chartArea;
+      const currentX = xScale.getPixelForValue(currentHourIndex);
+      const nextX = currentHourIndex < hourlyEntry.hourly.time.length - 1
+        ? xScale.getPixelForValue(currentHourIndex + 1)
+        : currentX;
+      const x = currentX + ((nextX - currentX) * (now.getMinutes() / 60));
+      const { ctx } = chart;
+
+      ctx.save();
+      ctx.strokeStyle = '#0f766e';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([3, 4]);
+      ctx.beginPath();
+      ctx.moveTo(x, top);
+      ctx.lineTo(x, bottom);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.font = '12px Inter, Arial, sans-serif';
+      ctx.fillStyle = '#0f766e';
+      ctx.textAlign = x > right - 36 ? 'right' : 'left';
+      ctx.fillText('now', x > right - 36 ? x - 6 : x + 6, top + 14);
+      ctx.restore();
+    },
+  }), [date, hourlyEntry, isCurrentDay]);
+
+  return (
+    <>
+      {isCurrentDay && <div className="current-time-hint">Current time: {currentTime}</div>}
+      <div className="hourly-chart">
+        <Chart
+          type="bar"
+          data={data}
+          options={hourlyChartOptions(weatherLabels)}
+          plugins={[nowPlugin]}
+        />
+      </div>
+    </>
+  );
+}
+
+HourlyChart.propTypes = {
+  date: PropTypes.string.isRequired,
+  hourlyEntry: PropTypes.shape({
+    estimates: PropTypes.arrayOf(PropTypes.number).isRequired,
+    hourly: PropTypes.shape({
+      sunshine_duration: PropTypes.arrayOf(PropTypes.number).isRequired,
+      temperature_2m: PropTypes.arrayOf(PropTypes.number).isRequired,
+      time: PropTypes.arrayOf(PropTypes.string).isRequired,
+    }).isRequired,
+  }).isRequired,
+  isCurrentDay: PropTypes.bool.isRequired,
+};
 
 function Toggle({ label, checked, onChange }) {
   return (
@@ -186,6 +523,7 @@ export default function App() {
   }, [historical, monthlyPreset]);
 
   const today = formatDate(new Date().toISOString());
+  const visibleColumnCount = 4 + (showPower ? 1 : 0) + (showSun ? 2 : 0);
 
   return (
     <>
@@ -283,6 +621,24 @@ export default function App() {
                         <td>{formatTime(day.sunset)}</td>
                       </>}
                     </tr>
+                    {expandedDate === day.date && !hourlyData[day.date] && (
+                      <tr>
+                        <td colSpan={visibleColumnCount}>
+                          Loading hourly forecast...
+                        </td>
+                      </tr>
+                    )}
+                    {expandedDate === day.date && hourlyData[day.date] && (
+                      <tr className="hourly-chart-row">
+                        <td colSpan={visibleColumnCount}>
+                          <HourlyChart
+                            date={day.date}
+                            hourlyEntry={hourlyData[day.date]}
+                            isCurrentDay={formatDate(day.date) === today}
+                          />
+                        </td>
+                      </tr>
+                    )}
                     {expandedDate === day.date && hourlyData[day.date] && (
                       hourlyData[day.date].hourly.time.map((t, i) => {
                         const now = new Date();
@@ -327,27 +683,11 @@ export default function App() {
       </Card>
       <Card>
         <h3>Estimated Solar Power Forecast</h3>
-        <ResponsiveContainer width="100%" height={200}>
-          <LineChart data={forecast} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
-            <XAxis dataKey="date" tickFormatter={formatDate} />
-            <YAxis label={{ value: 'kWh', angle: -90, position: 'insideLeft' }} />
-            <Tooltip labelFormatter={formatDate} formatter={v => v.toFixed(2)} />
-            <CartesianGrid strokeDasharray="3 3" />
-            <Line type="monotone" dataKey="estimatedPower" stroke="#ff9800" name="Est. Power" />
-          </LineChart>
-        </ResponsiveContainer>
+        <DailyForecastChart forecast={forecast} />
       </Card>
       <Card>
         <h3>Historical Solar Production</h3>
-        <ResponsiveContainer width="100%" height={200}>
-          <LineChart data={historical.map(row => ({ date: row.date, kWh: row.production }))} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
-            <XAxis dataKey="date" tickFormatter={formatDate} />
-            <YAxis label={{ value: 'kWh', angle: -90, position: 'insideLeft' }} />
-            <Tooltip labelFormatter={formatDate} formatter={v => v.toFixed(2)} />
-            <CartesianGrid strokeDasharray="3 3" />
-            <Line type="monotone" dataKey="kWh" stroke="#2196f3" name="Historical" />
-          </LineChart>
-        </ResponsiveContainer>
+        <HistoricalChart historical={historical} />
       </Card>
       <div style={{ textAlign: 'right', fontSize: '0.95em', color: '#888', marginTop: '1rem' }}>
         Generated at {getNowString()}
